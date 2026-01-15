@@ -1,5 +1,5 @@
 {
-  "name": "DVB",
+  "name": "DVB Drivers",
   "description": "DVB Drivers for MOS",
   "category": [ "Driver" ],
   "repository": "https://github.com/ich777/mos-dvb-drivers",
