@@ -1,0 +1,71 @@
+{
+  "name": "OpenVPN-Client",
+  "repo": "ghcr.io/ich777/openvpn-client",
+  "registry": "https://hub.docker.com/r/ich777/openvpn-client/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--cap-add=NET_ADMIN --dns=8.8.8.8 --sysctl net.ipv6.conf.all.disable_ipv6=1 --restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/openvpn-client.png",
+  "project": "https://github.com/ich777/docker-openvpn-client",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "This OpenVPN container was designed to be started first to provide a connection to other containers (using '--net=container:OpenVPN-Client'), see the documentation for further help here: https://github.com/ich777/docker-openvpn-client\r\n\r\nThe basic steps for a OpenVPN connection that requires a Username and Password are: 1) Rename your *.ovpn to 'vpn.ovpn' and place it in your OpenVPN-Client directory, 2) Create in the same directory a file named 'vpn.auth' and place your Username in the first line and the Password for the connection in the second line and save it 3) Restart the container open the logs and see if the connection to your VPN establishes successfully.\r\n\r\nTo tunnel traffic from another container through this container edit the template from the other container, set the 'Network Type' to: 'None', enable the advanced view in the top right corner and at 'Extra Parameters' add the following: '--net=container:OpenVPN-Client' (replace 'OpenVPN-Client' with the name of this container if you choose a different name for it) and write down the port(s) that you need to connect to.\r\nAfter that go back to edit this containers template and add the port that you have noted in the above step to this container and click 'Apply' now you can connect to the container that you tunneld the traffic though this container.\r\n\r\nYou can route the traffic from multiple containers through this container with the steps above, if you need more ports then simply add more ports in this containers template.\r\n\r\nDNS: By default this container uses Googles DNS Server: 8.8.8.8 if you want to edit this turn on 'Advanced View' and edit this setting at 'Extra Parameters'.\r\n\r\nIPv6: By default IPv6 is disabled in this container. If you want to enable it turn on 'Advanced View' and delete the entry: '--sysctl net.ipv6.conf.all.disable_ipv6=1' from the 'Extra Parameters' or simply set it to: '--sysctl net.ipv6.conf.all.disable_ipv6=0'.\r\n\r\nADVANCED CONFIG: If you leave the appdata directory for this container empty it will start up and you have to manually configure it with the builtin comand: 'openvpn.sh', see: https://github.com/ich777/docker-openvpn-client",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/cache/appdata/openvpn-client",
+      "container": "/vpn",
+      "mode": "rw",
+      "description": "Data Path for your 'vpn.ovpn' and your certificates or your 'vpn.auth'.",
+      "required": true
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "FIREWALL",
+      "key": "FIREWALL",
+      "value": null,
+      "description": "This variable enables the firewall and blocks any connection when the VPN connection is not established (you don't have to specify anything here, if you want to disable the Firewall then simply delete this entry)",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "CONNECTED_CONTAINERS",
+      "key": "CONNECTED_CONTAINERS",
+      "value": null,
+      "description": "This variable enables the Connected Containers feature which will notify compatible containers when the VPN is restarted and restart themselves. To enable this feature enter '27286' without quotes, if you don't want to enable this feature leave this field empty.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "PING_IP",
+      "key": "PING_IP",
+      "value": null,
+      "description": "Enable a ping check if the container is still connected to the VPN (specify a IP like '8.8.8.8' or a domain name 'google.com' without quotes here). The container will restart if the ping fails (default interval is 30 seconds). If you don't want to use this feature leave this field empty.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "PING_INTERVAL",
+      "key": "PING_INTERVAL",
+      "value": "30",
+      "description": "Specify your ping interval in seconds here (default 30 seconds).",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "devices": [
+    {
+      "name": "TUN device",
+      "host": "/dev/net/tun",
+      "container": "/dev/net/tun",
+      "description": "TUN device that is needed to run the container.",
+      "required": true
+    }
+  ],
+  "labels": []
+}

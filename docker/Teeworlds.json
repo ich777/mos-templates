@@ -1,0 +1,74 @@
+{
+  "name": "Teeworlds",
+  "repo": "ghcr.io/ich777/teeworldsserver",
+  "registry": "https://hub.docker.com/r/ich777/teeworldsserver/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/teeworlds.png",
+  "project": "https://www.teeworlds.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install a simple Teeworlds Dedicated server with a autoexec.cfg, dm.cfg, tdm.cfg &amp; ctf.cfg preconfigured (the only thing that need to be changed is the Server Name and the RCON Password in the autoexec.cfg).\r\n\r\nATTENTION: Please don't delete the tar.gz file in the main directory!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available and the container will download and install it.",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/teeworlds/",
+      "container": "/serverdata/serverfiles/",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP",
+      "host": "8303",
+      "container": "8303",
+      "protocol": "udp",
+      "description": "Container Port: 8303",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "TCP",
+      "host": "8303",
+      "container": "8303",
+      "protocol": "tcp",
+      "description": "Container Port: 8303",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "ConfigFile",
+      "key": "GAME_CONFIG",
+      "value": "dm.cfg",
+      "description": "Container Variable: GAME_CONFIG",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

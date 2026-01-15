@@ -1,0 +1,22 @@
+{
+  "name": "Wireguard",
+  "repo": "git.minenet.at/ich777/wireguard-client",
+  "network": "bridge",
+  "custom_ip": "",
+  "default_shell": "",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped --no-healthcheck --cap-add=NET_ADMIN --device /dev/net/tun --sysctl net.ipv6.conf.all.disable_ipv6=1",
+  "web_ui_url": "",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/wireguard.png",
+  "paths": [
+    {
+      "name": "Data Path",
+      "mode": "rw",
+      "host": "/mnt/cache/appdata/wireguard_mullvad",
+      "container": "/wireguard"
+    }
+  ],
+  "ports": [],
+  "devices": [],
+  "gpus": []
+}

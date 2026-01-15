@@ -1,0 +1,68 @@
+{
+  "name": "MariaDB",
+  "repo": "ghcr.io/linuxserver/mariadb",
+  "registry": "https://hub.docker.com/r/linuxserver/mariadb/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--no-healthcheck --restart unless-stopped --log-driver=none",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-icon.png",
+  "category": "Network:Other MediaApp:Other Other: Tools:",
+  "project": "https://mariadb.org/",
+  "support": "https://forums.unraid.net/topic/40737-support-linuxserverio-mariadb/",
+  "description": "MariaDB Server (from Linuxserver.io) is a general purpose open source relational database management system. It's one of the most popular database servers in the world, with notable users including Wikipedia, WordPress.com and Google. MariaDB Server is released under the GPLv2 open source licence and is guaranteed to remain open source.",
+  "donate": null,
+  "requires": null,
+  "paths": [
+    {
+      "name": "AppData Config Path",
+      "host": "/mnt/cache/appdata/mariadb",
+      "container": "/config",
+      "description": null,
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "Host Port 1",
+      "host": "3306",
+      "container": "3306",
+      "protocol": "tcp",
+      "description": null,
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "Key 1",
+      "key": "PUID",
+      "value": "500",
+      "description": null,
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Key 2",
+      "key": "PGID",
+      "value": "500",
+      "description": null,
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Key 3",
+      "key": "MYSQL_ROOT_PASSWORD",
+      "value": null,
+      "description": null,
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

@@ -1,0 +1,123 @@
+{
+  "name": "SonsOfTheForest",
+  "repo": "ghcr.io/ich777/steamcmd:sonsoftheforest",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/sonsoftheforest.png",
+  "project": "https://www.steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install Sons Of The Forest and run it.\r\n\r\n**SERVERNAME:** 'Sons Of The Forest Docker Server'\r\n**SERVERPASSWORD:** 'Docker'\r\n(you can change this in your SERVERFOLDER/userdata/dedicatedserver.cfg)\r\n\r\nBETA Warning: Since this Docker runs with WINE it's marked as BETA, i can not guarantee if the server is running always as expected!\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\n**WARNING:** You have to open the ports in your firewall as listed in this template, if not the server will not properly start.\r\nIf you want LAN play only you have to edit the dedicatedserver.cfg file and set the \"LanOnly\" flag to: \"true\" (without double quotes).\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": null,
+      "required": true
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/sonsoftheforest",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": null,
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP1 - Game Port",
+      "host": "8766",
+      "container": "8766",
+      "protocol": "udp",
+      "description": "UDP GamePort (If you need another port delete this entry and create a new UDP port mapping here in the template with the Container and Host port set to the same as in your dedicatedserver.cfg).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UDP2 - QueryPort",
+      "host": "27016",
+      "container": "27016",
+      "protocol": "udp",
+      "description": "UDP QueryPort (If you need another port delete this entry and create a new UDP port mapping here in the template with the Container and Host port set to the same as in your dedicatedserver.cfg).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UDP3 - BlobSyncPort",
+      "host": "9700",
+      "container": "9700",
+      "protocol": "udp",
+      "description": "UDP BlobSyncPort (If you need another port delete this entry and create a new UDP port mapping here in the template with the Container and Host port set to the same as in your dedicatedserver.cfg).",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "2465200",
+      "description": "The GAME_ID that the container download at startup.\r\n(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GAME_PARAMS",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter your extra startup parameters here or leave empty.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Steam-Username",
+      "key": "USERNAME",
+      "value": null,
+      "description": "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard).",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Steam-Password",
+      "key": "PASSWRD",
+      "value": null,
+      "description": "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard).",
+      "required": false,
+      "mask": true
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

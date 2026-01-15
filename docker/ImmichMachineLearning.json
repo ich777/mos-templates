@@ -1,0 +1,42 @@
+{
+  "name": "ImmichMachineLearning-OpenVino",
+  "repo": "ghcr.io/immich-app/immich-machine-learning:release-openvino",
+  "registry": null,
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped --no-healthcheck",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/immich-app/immich/main/web/static/favicon.png",
+  "category": null,
+  "project": null,
+  "support": null,
+  "description": "Immich Machine Learning OpenVino, allows you to use a GPU to accelerate machine learning tasks, such as Smart Search and Facial Recognition, while reducing CPU load.",
+  "donate": null,
+  "requires": null,
+  "paths": [
+    {
+      "name": "Host Path 1",
+      "host": "/mnt/cache/appdata/immich-model-cache",
+      "container": "/cache"
+    }
+  ],
+  "ports": [],
+  "variables": [],
+  "devices": [
+    {
+      "name": "Host Device 1",
+      "host": "/dev/bus/usb",
+      "container": "/dev/bus/usb"
+    },
+    {
+      "name": "Host Device 2",
+      "host": "/dev/dri",
+      "container": "/dev/dri"
+    }
+  ],
+  "labels": []
+}

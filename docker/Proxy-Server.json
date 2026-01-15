@@ -1,0 +1,129 @@
+{
+  "name": "Proxy-Server",
+  "repo": "ghcr.io/ich777/proxy-server",
+  "registry": "https://hub.docker.com/r/ich777/proxy-server/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped --sysctl net.ipv6.conf.all.disable_ipv6=1",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/proxy-server.png",
+  "project": "https://github.com/ich777/docker-proxy-server",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "This container is a dedicated http/https and SOCKS5 proxy both with authentication support.\r\nIt's intended usecase is to use it in combination with a VPN container to give your applications outside of your server access to the VPN.\r\n\r\nIf you VPN supports native Wireguard support:\r\n1. Go to the built in VPN Manager in the Settings tab in Unraid\r\n2. Import the configuration vrom your VPN provider\r\n3. Make sure that \"Peer type of access\" is set to \"VPN tunneled access for docker\"\r\n4. Change the slider to active\r\n5. Set the network from this container to the `wg:` network from your provider\r\n\r\nTo connect the container to a already installed VPN container:\r\n1. Set the `Network Type` in this Docker template to `None`\r\n2. Enable the Advanced View on the top right corner from this Docker template and append:\r\n`--net=container:CONTAINERNAME`  \r\nTo the Extra Parameters (you have to change `CONTAINERNAME` to the VPN Docker container name eg: `--net=container:binhex-delugevpn` when the VPN Docker container name is `binhex-delugevpn` - case sensitive!).\r\n3. Go to the VPN Docker template and create two new port mappings with the button `Add another Path, Port, Variable, Label or Device`, by default 8118 (for http/https proxy) and 1080 (for SOCKS5 proxy) both TCP protocol and with host/container port set to the same port.\r\n4. When you've done that you can connect the application(s) to the proxy to the host IP from the VPN Docker container, by default with 8118 (for http/https proxy) and 1080 (for SOCKS5 proxy)\r\n\r\n**Note for Firefox and Chrome:** Firefox and Chrome natively don't support authentication for a SOCKS5 proxy, it is recommended to use a extension like FoxyProxy supports authentication).\r\n\r\n**URL encode:** If you are using a password with special charcters and want to use the http/https proxy system wide, the container ships with `urlencode` to convert your password to a URL compatible format. Just open up a terminal from the container, issue `urlencode` and follow the prompts.\r\n\r\nThe container uses dumbproxy and socks5 (both written in golang) as a backend to serve http/https and SOCKS5 proxy.",
+  "paths": [],
+  "ports": [
+    {
+      "name": "http/https Proxy",
+      "host": "8118",
+      "container": "8118",
+      "protocol": "tcp",
+      "description": "http/https proxy port",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "SOCKS5 Proxy",
+      "host": "1080",
+      "container": "1080",
+      "protocol": "tcp",
+      "description": "SOCKS5 proxy port",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "http/https Proxy Enabled",
+      "key": "HTTP_PROXY",
+      "value": "true",
+      "description": "Enable or disable http/https proxy",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "SOCKS5 Proxy Enabled",
+      "key": "SOCKS5_PROXY",
+      "value": "true",
+      "description": "Enable or disable SOCKS5 proxy",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "http/https User",
+      "key": "HTTP_PROXY_USER",
+      "value": null,
+      "description": "User for http/https proxy (leave empty for no authentication)",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "http/https Password",
+      "key": "HTTP_PROXY_PWD",
+      "value": null,
+      "description": "Password for http/https proxy (Not all special characters are allowed, please see the log if the container catches a non allowed character)Allowed special characters are: ?#/[]{}.:,/-_~-+",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "SOCKS5 User",
+      "key": "SOCKS5_PROXY_USER",
+      "value": null,
+      "description": "User for SOCKS5 proxy (leave empty for no authentication)",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "SOCKS5 Password",
+      "key": "SOCKS5_PROXY_PWD",
+      "value": null,
+      "description": "Password for SOCKS5 proxy (Not all special characters are allowed, please see the log if the container catches a non allowed character)Allowed special characters are: ?#/[]{}.:,/-_~-+",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "http/https Proxy Port",
+      "key": "HTTP_PROXY_PORT",
+      "value": "8118",
+      "description": "http/https proxy port (only change if you know what you are doing)",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "SOCKS5 Proxy Port",
+      "key": "SOCKS5_PROXY_PORT",
+      "value": "1080",
+      "description": "SOCKS5 proxy port (only change if you know what you are doing)",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Only change when you know what you are doing!",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Only change when you know what you are doing!",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "0000",
+      "description": "Only change when you know what you are doing!",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

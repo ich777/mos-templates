@@ -1,0 +1,66 @@
+{
+  "name": "ImmichPostgres",
+  "repo": "ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0",
+  "registry": null,
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped --no-healthcheck",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://github.com/juusujanar/unraid-templates/raw/master/img/PostgreSQL-logo.png",
+  "category": null,
+  "project": null,
+  "support": null,
+  "description": "Postgres on steroids with vectorchord and pgvectors",
+  "donate": null,
+  "requires": null,
+  "paths": [
+    {
+      "name": "Host Path 1",
+      "host": "/mnt/cache/appdata/postgres-immich/",
+      "container": "/var/lib/postgresql/data",
+      "description": null,
+      "required": false
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Host Key 1",
+      "key": "POSTGRES_INITDB_ARGS",
+      "value": "--data-checksums",
+      "description": null,
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Host Key 2",
+      "key": "POSTGRES_PASSWORD",
+      "value": "postgres",
+      "description": null,
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Host Key 3",
+      "key": "POSTGRES_USER",
+      "value": "postgres",
+      "description": null,
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Host Key 4",
+      "key": "POSTGRES_DB",
+      "value": "immich",
+      "description": null,
+      "required": false,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

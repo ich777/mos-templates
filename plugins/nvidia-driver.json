@@ -1,0 +1,13 @@
+{
+  "name": "Nvidia Driver",
+  "description": "Nvidia Driver for MOS",
+  "category": [ "Driver" ],
+  "repository": "https://github.com/ich777/mos-nvidia-driver",
+  "architecture": [ "amd64" ],
+  "driver": true,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/nvidia-driver.png",
+  "author": "ich777",
+  "homepage": "https://www.nvidia.com/en-us/drivers/unix/",
+  "support": "https://github.com/ich777/mos-nvidia-driver/issues",
+  "donate": "https://paypal.me/chips777"
+}

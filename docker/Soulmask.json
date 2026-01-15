@@ -1,0 +1,114 @@
+{
+  "name": "Soulmask",
+  "repo": "ghcr.io/ich777/steamcmd:soulmask",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/soulmask.png",
+  "project": "https://www.steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install Soulmask and run it.\r\n\r\nDefaults: Servername: 'Soulmask Docker' Password: 'Docker' Admin Password: 'adminDocker'\r\n(You can change that in the GAME_PARAMS variable)\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": null,
+      "required": true
+    },
+    {
+      "name": "Server Files",
+      "host": "/mnt/cache/appdata/soulmask",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": null,
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP1 - GamePort",
+      "host": "8777",
+      "container": "8777",
+      "protocol": "udp",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UDP2 - QueryPort",
+      "host": "27015",
+      "container": "27015",
+      "protocol": "udp",
+      "description": null,
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "Start Parameters",
+      "key": "GAME_PARAMS",
+      "value": "-SteamServerName=\"Soulmask Docker\" -MaxPlayers=50 -PSW=\"Docker\" -adminpsw=\"adminDocker\" -pve -Port=8777 -QueryPort=27015 -EchoPort=18888",
+      "description": "Enter your start up commands for the server (ATTENTION: You have to wrap SteamServerName, PSW and adminpsw in double quotes!)",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Game ID",
+      "key": "GAME_ID",
+      "value": "3017300",
+      "description": "The GAME_ID that the container downloads at startup. If you want to install a static or beta version of the game change the value to: '3017300 -beta YOURBRANCH' (without quotes, replace YOURBRANCH with the branch or version you want to install).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Steam-Username",
+      "key": "USERNAME",
+      "value": null,
+      "description": "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard).",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Steam-Password",
+      "key": "PASSWRD",
+      "value": null,
+      "description": "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard).",
+      "required": false,
+      "mask": true
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

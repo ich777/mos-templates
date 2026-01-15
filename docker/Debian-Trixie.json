@@ -1,0 +1,99 @@
+{
+  "name": "Debian-Trixie",
+  "repo": "ghcr.io/ich777/debian-trixie",
+  "registry": "https://hub.docker.com/r/ich777/debian-trixie",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped --shm-size=2G",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/vnc.html?autoconnect=true",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/debian13.png",
+  "category": [ "web" ],
+  "project": "https://www.debian.org/",
+  "support": null,
+  "description": "This Container is a full Debian Trixie Xfce4 Desktop environment with a noVNC webGUI and all the basic tools pre-installed.",
+  "donate": "https://www.paypal.me/chips777",
+  "requires": null,
+  "paths": [
+    {
+      "name": "Home Directory",
+      "host": "/mnt/cache/appdata/debian-trixie/",
+      "container": "/debian"
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP - VNC Port",
+      "protocol": "tcp",
+      "host": "8080",
+      "container": "8080"
+    },
+    {
+      "name": "Host Port 2",
+      "protocol": "tcp",
+      "host": "5900",
+      "container": "5900"
+    }
+  ],
+  "variables": [
+    {
+      "name": "Host Key 7",
+      "key": "KASMVNC_PARAMS",
+      "value": "-disableBasicAuth -PreferBandwidth -FreeKeyMappings -DLP_ClipDelay=0",
+      "mask": false
+    },
+    {
+      "name": "Host Key 3",
+      "key": "DEPTH",
+      "value": "24",
+      "mask": false
+    },
+    {
+      "name": "Host Key 4",
+      "key": "X11VNC",
+      "value": "false",
+      "mask": false
+    },
+    {
+      "name": "DATA_PERM",
+      "key": "DATA_PERM",
+      "value": "770",
+      "mask": false
+    },
+    {
+      "name": "Locales",
+      "key": "USER_LOCALES",
+      "value": "de_DE.UTF-8 UTF-8",
+      "mask": false
+    },
+    {
+      "name": "DEV_LOG_OUTPUT",
+      "key": "DEV",
+      "value": null,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "mask": false
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "0000",
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

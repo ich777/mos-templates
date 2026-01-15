@@ -1,0 +1,71 @@
+{
+  "name": "Jellyfin",
+  "repo": "ghcr.io/jellyfin/jellyfin",
+  "registry": "https://hub.docker.com/r/ich777/jellyfin",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped --dns=10.0.0.5 --no-healthcheck",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8096]/",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/jellyfin.png",
+  "category": "MediaApp:Video MediaApp:Music",
+  "project": "https://jellyfin.org/",
+  "support": "https://forums.unraid.net/topic/102787-support-ich777-jellyfin-amdnvidia/",
+  "description": "Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps..",
+  "donate": null,
+  "requires": null,
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/cache/appdata/jellyfin",
+      "container": "/config",
+      "description": "Data path where the configurations is saved",
+      "required": true
+    },
+    {
+      "name": "Movies",
+      "host": "/mnt/cache/Filme/",
+      "container": "/mnt/movies",
+      "description": "Path to your Movie library.",
+      "required": true
+    },
+    {
+      "name": "TV Shows",
+      "host": "/mnt/cache/Serien/",
+      "container": "/mnt/tv",
+      "description": "Path to your TV-Shows library.",
+      "required": true
+    },
+    {
+      "name": "Music",
+      "host": "/mnt/misc_cache/Musik/",
+      "container": "/mnt/music",
+      "description": "Path to your Music library.",
+      "required": false
+    },
+    {
+      "name": "Cache",
+      "host": "/mnt/cache/temp/Jellyfin",
+      "container": "/cache",
+      "description": "Cache path (strongly recommended to use).",
+      "required": false
+    }
+  ],
+  "ports": [
+    {
+      "name": "http - WebGUI",
+      "host": "8096",
+      "container": "8096",
+      "protocol": "tcp",
+      "description": "WebGUI Port http.",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": []
+}

@@ -1,0 +1,123 @@
+{
+  "name": "Wreckfest",
+  "repo": "ghcr.io/ich777/steamcmd:wreckfest",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/wreckfest.png",
+  "project": "https://www.steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install Wreckfest and run it.\r\n\r\n\r\nServername: 'Wreckfest Docker' Password: 'Docker'\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": null,
+      "required": true
+    },
+    {
+      "name": "Server Files",
+      "host": "/mnt/cache/appdata/wreckfest/",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": null,
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP - Game Port",
+      "host": "33540",
+      "container": "33540",
+      "protocol": "udp",
+      "description": "UDP Game Port (if you need another port, please delete this entry and create a new UDP Port with the required port number, also don't forget to change your server settings)",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "UDP - Steam/Query Ports",
+      "host": "27015-27016",
+      "container": "27015-27016",
+      "protocol": "udp",
+      "description": "UDP Steam/Query Ports (if you need another port, please delete this entry and create a new UDP Port with the required port number, also don't forget to change your server settings)",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "TCP - WebConsole",
+      "host": "9028",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "WebConsole (by default, you can connect to the Wreckfest console by opening your browser and go to HOSTIP:9028 - eg: 192.168.1.1:9028 - or click on WebUI on the Docker page within Unraid).",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "361580",
+      "description": "The GAME_ID that the container download at startup.\r\n(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GAME_PARAMS",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter your start up commands for the server.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Steam-Username",
+      "key": "USERNAME",
+      "value": null,
+      "description": "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard).",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Steam-Password",
+      "key": "PASSWRD",
+      "value": null,
+      "description": "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard).",
+      "required": false,
+      "mask": true
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

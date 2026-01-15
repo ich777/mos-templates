@@ -1,0 +1,105 @@
+{
+  "name": "luckyBackup",
+  "repo": "ghcr.io/ich777/luckybackup",
+  "registry": "https://hub.docker.com/r/ich777/luckybackup/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/vnc.html?autoconnect=true",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/luckybackup.png",
+  "project": "https://sourceforge.net/projects/luckybackup/",
+  "support": null,
+  "description": "LuckyBackup is a very user-friendly GUI backup program. It uses rsync as a backend and transfers over only changes made rather than all data.\r\n\r\nUpdate: The container will check on every start/restart if there is a newer version available\r\n\r\nCron: If you create a cron job please be sure to tick the \"Console Mode\" checkbox, otherwise the cron jobs will not work.\r\n\r\nLanguage: If you want to change the language make sure to exit luckyBackup from within the WebGUI by clicking 'Profile -&gt; Quit' or CTRL +X otherwise the language change isn't saved.",
+  "paths": [
+    {
+      "name": "Data Dir",
+      "host": "/mnt/cache/appdata/luckybackup/",
+      "container": "/luckybackup",
+      "mode": "rw",
+      "description": "Config path",
+      "required": true
+    },
+    {
+      "name": "Shares",
+      "host": "/mnt/cache/",
+      "container": "/mnt/user",
+      "mode": "rw",
+      "description": "Container Path: /mnt/user",
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebGUI",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "WebGUI http Port",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "Run as root user",
+      "key": "ROOT",
+      "value": "false",
+      "description": "This is only needed if you want to create backups from your /boot drive or other directories that require root privileges (please don't forget to change the Shares Host path to / otherwise you can't see it in /mnt in the container).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Data Permissions",
+      "key": "DATA_PERM",
+      "value": "770",
+      "description": "Data Permissions for config directory",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Umask Value",
+      "key": "UMASK",
+      "value": "0000",
+      "description": "Container Variable: UMASK",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Custom Screen Width",
+      "key": "CUSTOM_RES_W",
+      "value": "1024",
+      "description": "Minimum screen width 1024 pixels",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Custom Screen Height",
+      "key": "CUSTOM_RES_H",
+      "value": "768",
+      "description": "Minimum screen hight 768 pixels",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

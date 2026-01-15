@@ -1,0 +1,57 @@
+{
+  "name": "PushBits",
+  "repo": "ghcr.io/pushbits/server",
+  "registry": "https://github.com/pushbits/server/pkgs/container/server",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/pushbits/logo/main/logo.png",
+  "project": "https://github.com/pushbits/server",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "Receive your important notifications immediately, over Matrix.\r\nIt enables you to send push notifications via a simple web API, and delivers them to your users.\r\n\r\nPushBits is a relay server for push notifications. It enables you to send notifications via a simple web API, and delivers them to you through Matrix. This is similar to what Pushover and Gotify offer, but it does not require an additional app.\r\n\r\n**Config File:** After the first start you have to download the config example file from here: https://github.com/pushbits/server/blob/main/config.example.yml rename it to 'config.yml' and place it in your '.../appdata/pushbits' folder. Of course configure it to your likings with the appropriate usernames and passwords.\r\nYou can get more information over https://github.com/pushbits/server\r\n\r\n**API**: You can set up notifications through 'pbcli' which is included in this container, for more information head over to: https://github.com/pushbits/cli/blob/main/README.md",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/cache/appdata/pushbits",
+      "container": "/data",
+      "mode": "rw",
+      "description": "Main Data Path (where your config.yml needs to go and the database is located).",
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP - Listen port",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "This is the port on which PushBits will listen (it is strongly recommended to use a reverse proxy to expose the service to the Internet - please remember if you change the port in the config.yml you also have to change the Container port too!).",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

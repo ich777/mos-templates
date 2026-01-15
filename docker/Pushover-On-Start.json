@@ -1,0 +1,62 @@
+{
+  "name": "Pushover-On-Start",
+  "repo": "ghcr.io/ich777/pushover-on-start",
+  "registry": "https://hub.docker.com/r/ich777/pushover-on-start",
+  "network": "host",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/donegear.png",
+  "project": "https://hub.docker.com/r/ich777/pushover-on-start",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "This is a simple container that sends a message when the container is started (needed this for a headless machine to know when I can connect or better speaking start up the VM's with WOL).",
+  "paths": [],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Pushover APP Token",
+      "key": "PUSHOVER_APP_TOKEN",
+      "value": null,
+      "description": "Pushover APP Token goes here.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Pushover User Token",
+      "key": "PUSHOVER_USER_TOKEN",
+      "value": null,
+      "description": "Pushover User Token goes here.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Pushover Message Title",
+      "key": "PUSHOVER_TITLE",
+      "value": "Startup Complete",
+      "description": "Customized Pushover Message Title here.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Pushover Message",
+      "key": "PUSHOVER_MESSAGE",
+      "value": "Server is now Online!",
+      "description": "Customized Pushover Message here.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Pushover Priority",
+      "key": "PUSHOVER_PRIORITY",
+      "value": "0",
+      "description": "Customize the Pushover Priority ('-2': Lowest priority | '-1': Low Priority | '0': Normal Priority | '1': High Priority | '2': Emergency Priority - without quotes)",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

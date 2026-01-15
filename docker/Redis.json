@@ -1,0 +1,43 @@
+{
+  "name": "Redis",
+  "repo": "redis",
+  "registry": "https://registry.hub.docker.com/_/redis/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--sysctl net.core.somaxconn=511",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/juusujanar/unraid-templates/master/img/Redis-logo.png",
+  "category": "Network:Management Productivity: Tools:",
+  "project": "https://redis.io/",
+  "support": null,
+  "description": "Redis is an open-source, in-memory, NoSQL key-value store known for its high performance. It is primarily used as a cache but also functions as a database, message broker, and streaming engine.",
+  "donate": null,
+  "requires": null,
+  "paths": [
+    {
+      "name": "Host Path 1",
+      "host": "/mnt/nvme/appdata/redis",
+      "container": "/data",
+      "description": null,
+      "required": false
+    }
+  ],
+  "ports": [
+    {
+      "name": "Redis Port",
+      "host": "6379",
+      "container": "6379",
+      "protocol": "tcp",
+      "description": "This is Redis default connection port.",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "labels": []
+}

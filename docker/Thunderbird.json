@@ -1,0 +1,105 @@
+{
+  "name": "Thunderbird",
+  "repo": "ghcr.io/ich777/thunderbird",
+  "registry": "https://hub.docker.com/r/ich777/thunderbird/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped --shm-size=2G",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/vnc.html?autoconnect=true",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/thunderbird.png",
+  "project": "https://www.thunderbird.net/",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "This container will download and install Thunderbird from the preferred branch and language.\r\n\r\nATTENTION: If you want to change the language, you have to delete every file in the 'thunderbird' directory except the 'profile' folder.\r\n\r\nRESOLUTION: You can also change the resolution from the WebGUI, to do that simply click on 'Show more settings...' (on a resolution change it can occour that the screen is not filled entirely with the Thunderbird window, simply restart the container and it will be fullscreen again).",
+  "paths": [
+    {
+      "name": "Data Dir",
+      "host": "/mnt/cache/appdata/thunderbird/",
+      "container": "/thunderbird",
+      "mode": "rw",
+      "description": "Data Path",
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "noVNC WebGUI",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "TCP noVNC WebGUI",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "Preferred Thunderbird Version",
+      "key": "THUNDERBIRD_V",
+      "value": "latest",
+      "description": "Enter your preferred Thunderbird branch 'latest' or 'beta' are allowed.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Preferred Thunderbird Language",
+      "key": "THUNDERBIRD_LANG",
+      "value": "en-US",
+      "description": "Enter your preferred language here (eg: 'en-US', 'de', 'fr', 'en-GB',... you can get a full list here: https://archive.mozilla.org/pub/thunderbird/releases/latest/README.txt)",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Custom Screen Width",
+      "key": "CUSTOM_RES_W",
+      "value": "1280",
+      "description": "Minimum screen width 1000 pixels",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Custom Screen Height",
+      "key": "CUSTOM_RES_H",
+      "value": "768",
+      "description": "Minimum screen hight 880 pixels",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Extra Parameters",
+      "key": "EXTRA_PARAMETERS",
+      "value": null,
+      "description": "If needed enter extra startup parameters here otherwise leave empty.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Umask",
+      "key": "UMASK",
+      "value": "000",
+      "description": "Container Variable: UMASK",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

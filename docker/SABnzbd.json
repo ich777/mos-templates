@@ -1,0 +1,114 @@
+{
+  "name": "SABnzbd",
+  "repo": "ghcr.io/ich777/sabnzbd",
+  "registry": "https://hub.docker.com/r/ich777/sabnzbd",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/sabnzbd.png",
+  "project": "https://sabnzbd.org/",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "SABnzbd is a program to download binary files from Usenet servers. Many people upload all sorts of interesting material to Usenet and you need a special program to get this material with the least effort.\r\n\r\nUPDATE: The container will check on every start/restart if there is a newer version available (you can also choose between stabel and prereleases and switch between them - keep in mind sometimes downgrading from a prerelease version could break your configuration).\r\n\r\nMANUAL VERSION: You can also set a version manually by typing in the version number that you want to use for example: '3.0.1' (without quotes) - you can also change it to 'latest' or 'prerelease' like described above.\r\n\r\nATTENTION: Don't change the IP adress or the port in the SABnzbd config itself - please also note if you change the WebGUI port from 8080 to anything else that it can happen that you have close and reopen the webpage since SABnzbd want's to redirect you to the wrong port after the initial setup.",
+  "paths": [
+    {
+      "name": "Data Dir",
+      "host": "/mnt/cache/appdata/sabnzbd",
+      "container": "/sabnzbd",
+      "mode": "rw",
+      "description": "Configuration directory",
+      "required": true
+    },
+    {
+      "name": "Dowloads",
+      "host": "/mnt/cache/Downloads/",
+      "container": "/mnt/downloads",
+      "mode": "rw",
+      "description": "Main download directory",
+      "required": true
+    },
+    {
+      "name": "Incomplete",
+      "host": "/mnt/cache/Downloads/incomplete/",
+      "container": "/mnt/incomplete",
+      "mode": "rw",
+      "description": "Directory for incomplete downloads (could be a subfolder in the download directory)",
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP - WebGUI http",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "WebGUI port http (don't change the IP adress or the port in the SABnzbd config itself - please note that if you change this value that it can happen that you have close and reopen the webpage after the initial setup).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "TCP - WebGUI https",
+      "host": "9090",
+      "container": "9090",
+      "protocol": "tcp",
+      "description": "WebGUI port for https - you can delete this value if you don't connect through https (don't change the IP adress or the port in the SABnzbd config itself - please note that if you change this value that it can happen that you have close and reopen the webpage after the initial setup).",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "SABnzbd Release",
+      "key": "SABNZBD_REL",
+      "value": "latest",
+      "description": "Select if you want to download a stable or prerelease (valid options are 'lastest' and 'prerelease' without quotes - you can also set the version manual in this format: '3.0.1' or '3.0.0' without quotes).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Connected Containers",
+      "key": "CONNECTED_CONTAINERS",
+      "value": null,
+      "description": "If connected and routet through a VPN container compatible with the Connected Containers feature, allows the container to detect a restart from the VPN container and restart itself. The default value is: '127.0.0.1:27286' without quotes. If you don't want to use this feature leave this field empty.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Data Permissions",
+      "key": "DATA_PERM",
+      "value": "770",
+      "description": "Container Variable: DATA_PERM",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Umask Value",
+      "key": "UMASK",
+      "value": "0000",
+      "description": "Container Variable: UMASK",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

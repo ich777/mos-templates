@@ -1,0 +1,85 @@
+{
+  "name": "Anubis",
+  "repo": "ghcr.io/techarohq/anubis:latest",
+  "registry": "https://github.com/TecharoHQ/anubis/pkgs/container/anubis",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:9090]/metrics",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/anubis.png",
+  "category": [ "web" ],
+  "project": "https://github.com/TecharoHQ/anubis",
+  "support": "https://github.com/TecharoHQ/anubis/issues",
+  "description": "Anubis is an open-source web application firewall (WAF) designed to protect websites from aggressive AI-based web scraping bots by presenting a proof-of-work challenge to suspicious clients. It works as a reverse proxy, filtering HTTP requests and using a computationally intensive JavaScript-based challenge (a SHA256 hash) to verify that the client is a real browser and not a bot. This slows down or blocks bots while allowing human users to pass the challenge quickly and invisibly.",
+  "donate": "https://github.com/sponsors/Xe",
+  "requires": null,
+  "paths": [
+    {
+      "name": "Data Dir",
+      "host": "/mnt/cache/appdata/anubis/botpolicy.json",
+      "container": "/data/cfg/botpolicy.json"
+    }
+  ],
+  "ports": [
+    {
+      "name": "Metrics",
+      "protocol": "tcp",
+      "host": "9090",
+      "container": "9090"
+    }
+  ],
+  "variables": [
+    {
+      "name": "BIND",
+      "key": "BIND",
+      "value": ":8080"
+    },
+    {
+      "name": "DIFFICULTY",
+      "key": "DIFFICULTY",
+      "value": "4"
+    },
+    {
+      "name": "METRICS_BIND",
+      "key": "METRICS_BIND",
+      "value": ":9090"
+    },
+    {
+      "name": "SERVE_ROBOTS_TXT",
+      "key": "SERVE_ROBOTS_TXT",
+      "value": "true"
+    },
+    {
+      "name": "TARGET",
+      "key": "TARGET",
+      "value": null,
+      "required": true
+    },
+    {
+      "name": "POLICY_FNAME",
+      "key": "POLICY_FNAME",
+      "value": "/data/cfg/botpolicy.json"
+    },
+    {
+      "name": "COOKIE_EXPIRATION_TIME",
+      "key": "COOKIE_EXPIRATION_TIME",
+      "value": "48h"
+    },
+    {
+      "name": "OG_PASSTHROUGH",
+      "key": "OG_PASSTHROUGH",
+      "value": "false"
+    },
+    {
+      "name": "REDIRECT_DOMAINS",
+      "key": "REDIRECT_DOMAINS",
+      "value": ""
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

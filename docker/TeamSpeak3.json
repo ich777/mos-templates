@@ -1,0 +1,107 @@
+{
+  "name": "TeamSpeak3",
+  "repo": "ghcr.io/ich777/teamspeak",
+  "registry": "https://hub.docker.com/r/ich777/teamspeak",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://github.com/ich777/docker-templates/raw/master/ich777/images/teamspeak3.png",
+  "project": "https://www.teamspeak.com/",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "This container will download and install TeamSpeak3 Server.\r\n\r\nFIRST RUN: at first run the token will be displayed in the log (also don't forget to accept the license in the template).\r\n\r\nUPDATE NOTICE: The container will check on every start/restart if there is a newer version of the server available and install it.",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/cache/appdata/teamspeak3",
+      "container": "/teamspeak",
+      "mode": "rw",
+      "description": "Data Path",
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP - Voice",
+      "host": "9987",
+      "container": "9987",
+      "protocol": "udp",
+      "description": "UDP Voice Port",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "TCP1 - Query Port",
+      "host": "10011",
+      "container": "10011",
+      "protocol": "tcp",
+      "description": "TCP Query Port",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "TCP2 - File Transfer",
+      "host": "30033",
+      "container": "30033",
+      "protocol": "tcp",
+      "description": "TCP File Transfer Port",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "License agreement",
+      "key": "TS3SERVER_LICENSE",
+      "value": null,
+      "description": "Set to 'accept' if you agree the license agreement (you can find the license after the first start of the container in the main directory of the container or you can set it also to 'view' to read it in the terminal - without quotes).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Enable TSDNS",
+      "key": "ENABLE_TSDNS",
+      "value": null,
+      "description": "If you enable the TSDNS service please also add a new TCP Port to the template with the Container and Host port: 41144",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "000",
+      "description": "Only change if you know what you are doing!",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Only change if you know what you are doing!",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Only change if you know what you are doing!",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "DATA_PERM",
+      "key": "DATA_PERM",
+      "value": "770",
+      "description": "Only change if you know what you are doing (set the Data Permissions on the server files)!",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

@@ -1,0 +1,99 @@
+{
+  "name": "SWAG",
+  "repo": "ghcr.io/linuxserver/swag",
+  "registry": "https://hub.docker.com/r/linuxserver/swag/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "https://[IP]:[PORT:443]",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/swag.png",
+  "category": "Tools: Network:Web Status:Stable",
+  "project": "https://letsencrypt.org/",
+  "support": "https://forums.unraid.net/topic/51808-support-linuxserverio-letsencrypt-nginx/",
+  "description": "This container sets up an Nginx webserver and reverse proxy with php support and a built-in letsencrypt client that automates free SSL server certificate generation and renewal processes. It also contains fail2ban for intrusion prevention.",
+  "donate": null,
+  "requires": null,
+  "paths": [
+    {
+      "name": "AppData Config Path",
+      "host": "/mnt/cache/appdata/letsencrypt",
+      "container": "/config"
+    }
+  ],
+  "ports": [
+    {
+      "name": "http",
+      "protocol": "tcp",
+      "host": "880",
+      "container": "80"
+    },
+    {
+      "name": "https",
+      "protocol": "tcp",
+      "host": "8443",
+      "container": "443"
+    }
+  ],
+  "variables": [
+    {
+      "name": "Email",
+      "key": "EMAIL",
+      "value": null,
+      "mask": false
+    },
+    {
+      "name": "Domain Name",
+      "key": "URL",
+      "value": null,
+      "mask": false
+    },
+    {
+      "name": "Subdomain(s)",
+      "key": "SUBDOMAINS",
+      "value": "WILDCARD",
+      "mask": false
+    },
+    {
+      "name": "Only Subdomains",
+      "key": "ONLY_SUBDOMAINS",
+      "value": "false",
+      "mask": false
+    },
+    {
+      "name": "Diffie Hellman",
+      "key": "DHLEVEL",
+      "value": "4096",
+      "mask": false
+    },
+    {
+      "name": "Validation",
+      "key": "VALIDATION",
+      "value": "dns",
+      "mask": false
+    },
+    {
+      "name": "DNS-Plugin",
+      "key": "DNSPLUGIN",
+      "value": "cloudflare",
+      "mask": false
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "500",
+      "mask": false
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "500",
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

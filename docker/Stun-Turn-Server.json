@@ -1,0 +1,242 @@
+{
+  "name": "Stun-Turn-Server",
+  "repo": "ghcr.io/ich777/stun-turn-server",
+  "registry": "https://hub.docker.com/r/ich777/stun-turn-server",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/stun-turn.png",
+  "project": null,
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "This is a Basic STUN &amp; TURN server that was mainly created for Nextcloud Talk.\r\n\r\nIt is fully automated and will create all the necessary files and passwords so that the server can sucessfully start and run.\r\n\r\nPlease read all the discriptions from the Variables carefully and also look at the 'Show more settings' tab.\r\n\r\nATTENTION: Please ignore the socket errors after the server startup if you don't have IPv6 enabled on your server.",
+  "paths": [
+    {
+      "name": "Container Path",
+      "host": "/mnt/cache/appdata/stun-turn-server",
+      "container": "/stun-turn",
+      "mode": "rw",
+      "description": "Container Path: /stun-turn",
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP Port",
+      "host": "5349",
+      "container": "5349",
+      "protocol": "tcp",
+      "description": "TCP Port",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UDP Ports",
+      "host": "5349",
+      "container": "5349",
+      "protocol": "udp",
+      "description": "UDP Port",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "Port Variable",
+      "key": "PORT",
+      "value": "5349",
+      "description": "If you change this variable you have to create two new port forwardings with the corresponding ports one for TCP and one for UDP.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Static Secret",
+      "key": "SECRET",
+      "value": null,
+      "description": "Create your own secret and enter it here or leave empty and the server creats a secret that is stored into 'secret.txt' in the main directory of the container (generate it for example in a linux terminal with the command 'openssl rand -hex 32' without quotes).",
+      "required": false,
+      "mask": true
+    },
+    {
+      "name": "Realm",
+      "key": "REALM",
+      "value": null,
+      "description": "Your hostname (eg: 'example.org' without quotes).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Certificate File Name",
+      "key": "CERT_FILE",
+      "value": "cert.pem",
+      "description": "Name of the certification file (leave empty if the server should create one or replace it with your own).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Private Key File Name",
+      "key": "PRIVKEY_FILE",
+      "value": "privkey.pem",
+      "description": "Name of the private key file (leave empty if the server should create one or replace it with your own).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Diffie-Hellman Key File Name",
+      "key": "DH_FILE",
+      "value": "dhparam.pem",
+      "description": "Name of the Diffie–Hellman key file (leave empty if the server should create one or replace it with your own - also plase look under the 'Show more settings' tab if you want to generate a bigger or smaller key default is: 2048).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Display Secrets in log",
+      "key": "DISPLAY_SECRETS",
+      "value": "true",
+      "description": "Display your secrets in the log (set to 'true' or leave empty to disable it).",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Certificate Generation - Country",
+      "key": "CA_COUNTRY",
+      "value": null,
+      "description": "Country code for your certificate if the server should create one (two letters eg: 'US' without quotes - also plase look under the 'Show more settings' tab there are more settings for generating your certificate).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Extra Startup Parameters",
+      "key": "EXTRA_PARAMS",
+      "value": null,
+      "description": "Here you can enter your Extra Startup Parameters if needed (you can get a full list of commands from here: https://github.com/coturn/coturn/wiki/turnserver)",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Total Quota",
+      "key": "TOTAL_QUOTA",
+      "value": "100",
+      "description": "Total allocations quota: global limit on concurrent allocations (only change if you know what you are doing).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Maximum bps",
+      "key": "MAX_BPS",
+      "value": "0",
+      "description": "Max bytes-per-second bandwidth a TURN session is allowed to handle (input and output network streams are treated separately). Anything above that limit will be dropped or temporary suppressed - within the available buffer limits (only change if you know what you are doing).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Cipher List",
+      "key": "CIPHER_LIST",
+      "value": "ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384",
+      "description": "Allowed OpenSSL cipher list for TLS/DTLS connections (only change if you know what you are doing).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Certificate Generation - Key Length",
+      "key": "CERT_LENGTH",
+      "value": "2048",
+      "description": "Enter your preferred key length (the higher the value the longer it takes to generate the certificate).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Certificate Generation - Valid Days",
+      "key": "CERT_VALID_DAYS",
+      "value": "3650",
+      "description": "Specify how long that the certificate should be valid in days.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Certificate Generation - State or Province",
+      "key": "CA_STATE_PROV",
+      "value": "None",
+      "description": "Specify your state or province.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Certificate Generation - Locality",
+      "key": "CA_LOCALITY",
+      "value": "None",
+      "description": "Specify your locality.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Certificate Generation - Organization",
+      "key": "CA_ORGANIZATION",
+      "value": "None",
+      "description": "Specify your organiszation.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Diffie–Hellman Key Length",
+      "key": "DH_LENGTH",
+      "value": "2048",
+      "description": "Enter your preferred key length (the higher the value the longer it takes to generate the key).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Command Line Password",
+      "key": "CLI_PASSWORD",
+      "value": null,
+      "description": "Enter your CLI password or leave empty if you want that the server creates a random one (please note that you have to manually enable the console with the '--cli-port PORT' - PORT stands for your preferred port - in the Extra Startup Parameters and create the corresponding port).",
+      "required": false,
+      "mask": true
+    },
+    {
+      "name": "Listening IP",
+      "key": "LISTENING_IP",
+      "value": "0.0.0.0",
+      "description": "Specify the listening port (only change if you know what you are doing).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "000",
+      "description": "Container Variable: 000",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "DATA_PERM",
+      "key": "DATA_PERM",
+      "value": "770",
+      "description": "Container Variable: DATA_PERM",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

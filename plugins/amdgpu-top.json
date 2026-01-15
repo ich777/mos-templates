@@ -1,0 +1,13 @@
+{
+  "name": "amdgpu TOP",
+  "description": "amdgpu TOP for MOS",
+  "category": [ "System" ],
+  "repository": "https://github.com/ich777/mos-amdgpu-top",
+  "architecture": [ "amd64" ],
+  "driver": false,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/radeontop.png",
+  "author": "ich777",
+  "homepage": "https://github.com/Umio-Yasuno/amdgpu_top",
+  "support": "https://github.com/ich777/mos-amdgpu-top/issues",
+  "donate": "https://paypal.me/chips777"
+}
