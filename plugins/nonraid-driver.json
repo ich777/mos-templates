@@ -1,0 +1,13 @@
+{
+  "name": "nonraid Driver",
+  "description": "nonraid Driver for MOS",
+  "category": [ "Driver" ],
+  "repository": "https://github.com/ich777/mos-nonraid",
+  "architecture": [ "amd64" ],
+  "driver": true,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/align-vertical-distribute.png",
+  "author": "ich777",
+  "homepage": "https://github.com/qvr/nonraid",
+  "support": "https://github.com/ich777/mos-nonraid/issues",
+  "donate": "https://paypal.me/chips777"
+}
