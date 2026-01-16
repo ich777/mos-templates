@@ -1,6 +1,6 @@
 {
-  "name": "SR-IOV i915 Drivers",
-  "description": "SRIOV i915 Drivers for MOS",
+  "name": "SR-IOV i915 Driver",
+  "description": "SRIOV i915 Driver for MOS",
   "category": [ "Driver" ],
   "repository": "https://github.com/ich777/mos-sriov-driver",
   "architecture": [ "amd64" ],
