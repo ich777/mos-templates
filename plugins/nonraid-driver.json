@@ -5,7 +5,7 @@
   "repository": "https://github.com/ich777/mos-nonraid-driver",
   "architecture": [ "amd64" ],
   "driver": true,
-  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/align-vertical-distribute.png",
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/align-vertical-distribute.png",
   "author": "ich777",
   "homepage": "https://github.com/qvr/nonraid",
   "support": "https://github.com/ich777/mos-nonraid-driver/issues",
