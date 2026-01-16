@@ -1,0 +1,13 @@
+{
+  "name": "Google Coral Driver",
+  "description": "Google Coral Driver for MOS",
+  "category": [ "Driver" ],
+  "repository": "https://github.com/ich777/mos-coral-driver",
+  "architecture": [ "amd64" ],
+  "driver": true,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/coral-driver.png",
+  "author": "ich777",
+  "homepage": "https://github.com/google/gasket-driver",
+  "support": "https://github.com/ich777/mos-coral-driver/issues",
+  "donate": "https://paypal.me/chips777"
+}
