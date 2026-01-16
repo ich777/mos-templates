@@ -1,0 +1,13 @@
+{
+  "name": "Docker Local Host Access",
+  "description": "This plugin allows containers in LAN networks (br0/eth0, macvlan/ipvlan) to reach the host",
+  "category": [ "System" ],
+  "repository": "https://github.com/ich777/mos-docker-shim",
+  "architecture": [ "all" ],
+  "driver": false,
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/router-network.png",
+  "author": "ich777",
+  "homepage": "https://github.com/moby/moby",
+  "support": "https://github.com/ich777/mos-docker-shim/issues",
+  "donate": "https://paypal.me/chips777"
+}
