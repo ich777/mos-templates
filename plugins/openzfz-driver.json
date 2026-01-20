@@ -1,0 +1,13 @@
+{
+  "name": "OpenZFS Driver",
+  "description": "OpenZFS Driver for MOS",
+  "category": [ "Driver" ],
+  "repository": "https://github.com/ich777/mos-openzfs-driver",
+  "architecture": [ "amd64" ],
+  "driver": true,
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/openzfs.png",
+  "author": "ich777",
+  "homepage": "https://github.com/openzfs/zfs",
+  "support": "https://github.com/ich777/mos-openzfs-driver/issues",
+  "donate": "https://paypal.me/chips777"
+}
