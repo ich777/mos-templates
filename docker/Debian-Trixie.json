@@ -40,19 +40,19 @@
   ],
   "variables": [
     {
-      "name": "Host Key 7",
-      "key": "KASMVNC_PARAMS",
-      "value": "-disableBasicAuth -PreferBandwidth -FreeKeyMappings -DLP_ClipDelay=0",
-      "mask": false
+      "name": "Root Password",
+      "key": "ROOT_PWD",
+      "value": "Docker!",
+      "mask": true
     },
     {
-      "name": "Host Key 3",
+      "name": "Color Depth",
       "key": "DEPTH",
       "value": "24",
       "mask": false
     },
     {
-      "name": "Host Key 4",
+      "name": "x11vnc Enabled",
       "key": "X11VNC",
       "value": "false",
       "mask": false
