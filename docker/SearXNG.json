@@ -1,0 +1,44 @@
+{
+  "name": "SearXNG",
+  "repo": "docker.io/searxng/searxng",
+  "network": "bridge",
+  "custom_ip": "",
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": "",
+  "web_ui_url": "http://[IP]:[PORT:8080]",
+  "icon": "https://raw.githubusercontent.com/searxng/searxng/master/searx/static/themes/simple/img/favicon.png",
+  "category": [ "web" ],
+  "project": "https://docs.searxng.org/",
+  "support": "https://github.com/searxng/searxng/issues",
+  "description": "SearXNG is a metasearch engine. Users are neither tracked nor profiled.",
+  "paths": [
+    {
+      "name": "Configuration Directory",
+      "mode": "",
+      "host": "/mnt/cache/appdata/searxng/config",
+      "container": "/etc/searxng",
+      "description": ""
+    },
+    {
+      "name": "Data Directory",
+      "mode": "",
+      "host": "/mnt/cache/appdata/searxng/data",
+      "container": "/var/cache/searxng",
+      "description": ""
+    }
+  ],
+  "ports": [
+    {
+      "name": "Host Port",
+      "protocol": "tcp",
+      "host": "8888",
+      "container": "8080",
+      "description": ""
+    }
+  ],
+  "variables": [],
+  "devices": [],
+  "gpus": []
+}
