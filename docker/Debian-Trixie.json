@@ -30,12 +30,6 @@
       "protocol": "tcp",
       "host": "8080",
       "container": "8080"
-    },
-    {
-      "name": "Host Port 2",
-      "protocol": "tcp",
-      "host": "5900",
-      "container": "5900"
     }
   ],
   "variables": [
@@ -43,7 +37,8 @@
       "name": "Root Password",
       "key": "ROOT_PWD",
       "value": "Docker!",
-      "mask": true
+      "mask": true,
+      "description": "Set your initial root password"
     },
     {
       "name": "Color Depth",
@@ -55,7 +50,8 @@
       "name": "x11vnc Enabled",
       "key": "X11VNC",
       "value": "false",
-      "mask": false
+      "mask": false,
+      "description": "If set to true, the container will start an additional x11vnc server on port 5900, please do note that you have to add a new port mapping for this port"
     },
     {
       "name": "DATA_PERM",
@@ -66,8 +62,9 @@
     {
       "name": "Locales",
       "key": "USER_LOCALES",
-      "value": "de_DE.UTF-8 UTF-8",
-      "mask": false
+      "value": "en_US.UTF-8 UTF-8",
+      "mask": false,
+      "description": "Enter your prefered locales, you can find a full list of supported languages in: '/usr/share/i18n/SUPPORTED' (eg: 'en_US.UTF-8 UTF-8' or 'de_DE.UTF-8 UTF-8',...)"
     },
     {
       "name": "DEV_LOG_OUTPUT",
