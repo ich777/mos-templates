@@ -1,0 +1,65 @@
+{
+  "name": "Zandronum",
+  "repo": "ghcr.io/ich777/zandronum",
+  "registry": "https://hub.docker.com/r/ich777/zandronum",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/zandronum.png",
+  "project": "https://www.steampowered.com/",
+  "support": "https://github.com/ich777/docker-zandronum/issues",
+  "description": "This Docker will download and install Zandronum Server and run it.\n\nZandronum brings classic Doom into the 21st century, maintaining the essence of what has made Doom great for so many years and, at the same time, adding new features to modernize it, creating a fresh, fun new experience.\n\nATTENTION: You have to place your wad files into the '/wads' folder to complete the startup of the server (If you place more than one wad file in the folder you have to append the GAME_PARAMS with for example: '-iwad DOOM2.WAD' - without quotes - to load like in this example DOOM2, also note that the wad file is case sensitive).",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/zandronum",
+      "container": "/zandronum",
+      "mode": "rw",
+      "description": "Server Path",
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP - GamePort",
+      "host": "10666",
+      "container": "10666",
+      "protocol": "udp",
+      "description": "Server Game Port (If you need another port please delete this entry and create a new UDP port with the preferred port number - also don't forget to change the port number in the GAME_PARAMS Variable).",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "Game Parameters",
+      "key": "GAME_PARAMS",
+      "value": "-host 16 -exec server.cfg",
+      "description": "Enter your start up commands for the server (eg: if you have more wad files in your 'wads' folder append: '-iwad DOOM2.WAD' - without quotes - to load DOOM2, also note that the wad file is case sensitive).",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": []
+}
