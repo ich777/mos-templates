@@ -1,0 +1,13 @@
+{
+  "name": "IT87 Driver",
+  "description": "IT87 Driver for MOS",
+  "category": [ "Driver" ],
+  "repository": "https://github.com/ich777/mos-it87-driver",
+  "architecture": [ "amd64" ],
+  "driver": true,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/ite.png",
+  "author": "ich777",
+  "homepage": "https://github.com/frankcrawford/it87",
+  "support": "https://github.com/ich777/mos-it87-driver/issues",
+  "donate": "https://paypal.me/chips777"
+}
