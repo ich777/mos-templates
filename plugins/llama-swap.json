@@ -1,0 +1,13 @@
+{
+  "name": "llama swap",
+  "description": "llama swap Plugin for MOS",
+  "category": [ "System" ],
+  "repository": "https://github.com/ich777/llama-swap",
+  "architecture": [ "all" ],
+  "driver": false,
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/llama-swap.png",
+  "author": "ich777",
+  "homepage": "https://github.com/mostlygeek/llama-swap",
+  "support": "https://github.com/ich777/llama-swap/issues",
+  "donate": "https://paypal.me/chips777"
+}
