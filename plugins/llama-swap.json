@@ -4,7 +4,6 @@
   "category": [ "System" ],
   "repository": "https://github.com/ich777/mos-llama-swap",
   "driver": false,
-  "settings": false,
   "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/llama-swap.png",
   "author": "ich777",
   "homepage": "https://github.com/mostlygeek/llama-swap",
