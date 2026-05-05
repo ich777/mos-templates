@@ -1,0 +1,14 @@
+{
+  "name": "rclone",
+  "description": "Manage rclone - cloud storage sync and mount",
+  "category": [ "System", "Backup" ],
+  "repository": "https://github.com/ich777/mos-rclone",
+  "architecture": [ "all" ],
+  "driver": false,
+  "settings": true,
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/rclone.png",
+  "author": "ich777",
+  "homepage": "https://github.com/rclone/rclone",
+  "support": "https://github.com/ich777/mos-releases/issues",
+  "donate": "https://rclone.org/sponsor/"
+}
