@@ -1,0 +1,14 @@
+{
+  "name": "Syncting",
+  "description": "Manage Syncthing - continuous file synchronization",
+  "category": [ "System", "Backup" ],
+  "repository": "https://github.com/ich777/mos-syncthing",
+  "architecture": [ "all" ],
+  "driver": false,
+  "settings": true,
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/syncthing.png",
+  "author": "ich777",
+  "homepage": "https://syncthing.net/",
+  "support": "https://github.com/ich777/mos-syncthing/issues",
+  "donate": "https://syncthing.net/donations/"
+}
