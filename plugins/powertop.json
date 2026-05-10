@@ -1,0 +1,14 @@
+{
+  "name": "PowerTOP",
+  "description": "Monitor power consumption and manage auto-tune",
+  "category": [ "System" ],
+  "repository": "https://github.com/ich777/mos-powertop",
+  "architecture": [ "amd64" ],
+  "driver": false,
+  "settings": true,
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/powertop.png",
+  "author": "ich777",
+  "homepage": "https://github.com/fenrus75/powertop",
+  "support": "https://github.com/ich777/mos-powertop/issues",
+  "donate": "https://paypal.me/chips777"
+}
