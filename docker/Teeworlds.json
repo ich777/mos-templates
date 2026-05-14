@@ -13,6 +13,7 @@
   "project": "https://www.teeworlds.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install a simple Teeworlds Dedicated server with a autoexec.cfg, dm.cfg, tdm.cfg &amp; ctf.cfg preconfigured (the only thing that need to be changed is the Server Name and the RCON Password in the autoexec.cfg).\r\n\r\nATTENTION: Please don't delete the tar.gz file in the main directory!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available and the container will download and install it.",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",
