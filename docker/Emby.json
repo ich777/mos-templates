@@ -25,7 +25,7 @@
     },
     {
       "name": "TV Shows Path",
-      "host": "/mnt/main/Media/TV/",
+      "host": "/mnt/main/Media/TV Shows",
       "container": "/mnt/TV"
     },
     {
