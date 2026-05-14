@@ -13,7 +13,7 @@
   "project": "https://openrct2.org/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install the preferred version of OpenRCT2 (don't forget to put in the server version to download).\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nManual Installation: You can also install a version manually but please be sure to put in the right version number of the file: ‘v0.2.3-develop-e4a2b1f9c’ if the source file is named like this: ‘OpenRCT2-0.2.3-develop-e4a2b1f9c-linux-x86_64.tar’, drop the file into the openrct2 directory and eventually restart the container to install it.\r\n\r\nUpdate Notice: If you want to update or downgrade the game simply change the version number.\r\n\r\nATTENTION: The variables Admin Name &amp; Admin Hash will only work on the first time you enter these, after that you must change it manually in ‘/SERVER_DIR/user-data/users.json’.\n\r\nNOTICE: If you got no IPv6 you will get an Error and a Warning in the log about that, you can ignore that the server runs just fine on IPv4.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",

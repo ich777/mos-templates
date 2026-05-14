@@ -13,7 +13,7 @@
   "project": "https://www.steampowered.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install SteamCMD. It will also install Icarus and run it.\r\n\r\nInitial server configuration:  \r\n**Servername:** Icarus Docker **Password:** Docker  **AdminPassword:** adminDocker  \r\n\r\n**ATTENTION:** First startup can take very long since it downloads the gameserver files and it also installs the runtimes which can take quite some time! \r\n\r\n**First Start Notice:** On First startup the container installs the necessary runtimes and it might seem that the container hangs but please be patient since the installation can take very long on some systems (5 minutes+).\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "SteamCMD",

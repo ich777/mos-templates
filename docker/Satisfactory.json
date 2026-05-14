@@ -13,7 +13,7 @@
   "project": "https://www.satisfactorygame.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install SteamCMD. It will also install Satisfactory and run it.\r\n\r\nSETTINGS: The first player that connects to the server becomes administrator, edit the server settings and can create a game.\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "SteamCMD",

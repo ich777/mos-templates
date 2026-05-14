@@ -13,7 +13,7 @@
   "project": "https://www.urbanterror.info/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "Urban Terror™ is a free multiplayer first person shooter developed by FrozenSand, that will run on any Quake III Arena compatible engine. It is available for Windows, Linux and Macintosh.\r\n\r\nUrban Terror can be described as a Hollywood tactical shooter; somewhat realism based, but the motto is \"fun over realism\". This results in a very unique, enjoyable and addictive game.\r\n\r\nATTENTION: The first startup can take very long since the container downloads the gamefiles, please wait patiently even if it seems to be stuck (this can take up to 30 minutes).\r\n\r\nUPDATE: The container will search for a new version of the game on every start/restart of the container if the variable 'CHECK_FOR_UPDATES' is set to 'true'.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "Data Dir",

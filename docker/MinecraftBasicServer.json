@@ -13,7 +13,7 @@
   "project": "https://www.minecraft.net/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This is a Basic Minecraft Server, with the basic configuration it will download and install a Vanilla Minecraft.\r\n\r\nYou can also install a FTB (FeedTheBeast), Bukkit, Spigot,... server.\r\n\r\nStart the container for the first time let it do it's work and shut it down.\r\nAfter that copy over your favorite server executable (don't forget to set the Serverfile name to the same as you copied over) and start the container again.\r\n\r\nJAVA RUNTIME: Enter your prefered Runtime 'basicjre'=jre8, 'jre11'=jre11, 'jre15'=jre15 Don't change unless you are knowing what you are doing! Please keep in mind if you change the runtime you have to delete the old runtime before\r\n\r\nUPDATE: If you set the variable GAME_V to 'latest' the container will check on every restart if there is a newer version available (if set to 'latest' the variable JAR_NAME has to be 'server').\n\r\nATTENTION: Don't forget to accept the EULA down below and don't forget to edit the 'server.properties' file the server is by default configured to be a LAN server and to be not snooped.\r\n\r\nWEB CONSOLE: You can connect to the Minecraft console by opening your browser and go to HOSTIP:9011 (eg: 192.168.1.1:9011) or click on WebUI on the Docker page within Unraid.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",

@@ -13,7 +13,7 @@
   "project": "https://steampowered.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install SteamCMD. It will also install Creativerse and run it.\r\n\r\n**ATTENTION:** First Startup can take very long since it downloads the gameserver files and the world template!\r\n\r\n**Update Notice:** Simply restart the container if a newer version of the game is available.\r\n\r\n**ServerAdmin:** To become server admin please open up the file '.../PlayfulCorp/CreativerseServer/worlddata/worlds/unraid_world/config_world.json' and change the value from 'WorldOwnerSteamId' to your SteamID64 (you can get your SteamID here: https://steamid.io/).\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!\r\n\r\n**Note:** As time of creating the container the WebGUI isn't working but you should be able to do all things from in game. The developers from the game will implement this later on.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "SteamCMD",

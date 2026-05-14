@@ -13,7 +13,7 @@
   "project": "https://store.steampowered.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install SteamCMD. It will also install Last Oasis and run it.\r\n\r\n**Customer &amp; Provider Key:** You have to first create your own Provider Key here: https://myrealm.lastoasis.gg and fill in the generated Provider Key and Custom Key in the template.\r\n\r\n**After the first server start:** After the first sever start you can mange your server at: https://myrealm.lastoasis.gg you should see your server there.\r\nCreate a Realm, Add and Activate a Tile and wait for the server to load it, after that you can join your dedicated server (keep in mind that every Tile needs it's own dedicated server and each dedicated server needs it's own Provider Key!).\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "SteamCMD",

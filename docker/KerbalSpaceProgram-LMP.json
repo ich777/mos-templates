@@ -13,7 +13,7 @@
   "project": "https://github.com/LunaMultiplayer/LunaMultiplayer",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This container will download and run Luna Multiplayer for Kerbal Space Program (KSP).\r\n\r\nLuna Multiplayer is a mod to enable Multiplayer for Kerbal Space Program, you can find more information here: https://github.com/LunaMultiplayer/LunaMultiplayer\r\n\r\n**ATTENTION:** Please also don't forget that you have to install the mod for your Client too: https://github.com/LunaMultiplayer/LunaMultiplayer/releases\nYou can get detailed instructions on how to do that on the Wiki: https://github.com/LunaMultiplayer/LunaMultiplayer/wiki\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available and the container will download and install it.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",

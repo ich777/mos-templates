@@ -13,7 +13,7 @@
   "project": "https://www.openttd.org/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install the version of OpenTTD that you enter in the variable 'GAME_VERSION' (if you define 'latest' it will always pull the latest build, if you define 'testing' it will always pull down the latest testing build).\r\n\r\nWEB CONSOLE: You can connect to the OpenTTD console by opening your browser and go to HOSTIP:9015 (eg: 192.168.1.1:9015) or click on WebUI on the Docker page within Unraid.\r\n\r\nUpdate Notice: If there is a newer version simply restart the container to update it to the latest version.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",

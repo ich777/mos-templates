@@ -13,7 +13,7 @@
   "project": "https://www.steampowered.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install Windwardand run it.\r\n\r\nCONSOLE: To connect to the console open up the terminal on the host machine and type in: 'docker exec -u windward -ti NAMEOFYOURCONTAINER screen -xS Windward' (without quotes) to exit the screen session press CTRL+A and then CTRL+D or simply close the terminal window in the first place.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",

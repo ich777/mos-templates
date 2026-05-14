@@ -13,7 +13,7 @@
   "project": "https://ddnet.tw/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install a simple DDNet Dedicated server with a default autoexec.cfg preconfigured (the only thing that need to be changed is the Server Name and the RCON Password in the autoexec.cfg).\r\n\r\nDDNet is an actively maintained version of DDRace, a Teeworlds modification with a unique cooperative gameplay. Help each other play through custom maps with up to 64 players and much more...\r\n\r\nATTENTION: Please don't delete the file named \"installedv-...\" in the main directory!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available and the container will download and install it.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",

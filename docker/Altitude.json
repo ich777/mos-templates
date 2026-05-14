@@ -13,7 +13,7 @@
   "project": "https://www.steampowered.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install Altitude and run it.\r\n\r\nDefault Servername: Docker Altitude Server | Default Password: Docker | Default Admin Password: adminDocker\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",

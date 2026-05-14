@@ -13,7 +13,7 @@
   "project": "https://tes3mp.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "TES3MP is a project adding multiplayer functionality to OpenMW, a free and open source engine recreation of the popular Bethesda Softworks game \"The Elder Scrolls III: Morrowind\".\r\n\r\nAs of version 0.7.0, TES3MP is fully playable, providing very extensive player, NPC, world and quest synchronization, as well as state saving and loading, all of which are highly customizable via serverside Lua scripts.\r\n\r\nRemaining gameplay problems mostly relate to AI and the synchronization of clientside script variables.\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",

@@ -13,7 +13,7 @@
   "project": "https://steampowered.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install SteamCMD. It will also install CoreKeeper and run it.\r\n\r\n**GameID:** Your GameID will be displayed in the log after the server successfully started.\r\n\r\n**Port Forwarding:** You don't have to forward any ports for this game because it uses the Steam Network and the GameID establish the connection.\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "SteamCMD",

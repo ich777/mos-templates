@@ -13,7 +13,7 @@
   "project": "https://www.steampowered.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install CounterStrike 2D.\r\nCounterStrike 2D is a free to play top down shooter (you can get it on Steam or at https://www.cs2d.com/)",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",

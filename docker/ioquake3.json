@@ -13,7 +13,7 @@
   "project": "https://ioquake3.org/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install ioquake3 Server (You have to copy your pak0.pk3 file from your game directory to your server).\r\n\r\nPK3 Files: After the container started the first time you have to copy your pak0.pk3 file from your Quake III Arena directory into your server directory: .../.q3a/baseq3/ (i strongly recommend you to place all your pak*.pk3 files into it) after that simply restart the container to start the server.\r\n\r\nWEB CONSOLE: You can connect to the ioquake3 console by opening your browser and go to HOSTIP:9029 (eg: 192.168.1.1:9029) or click on WebUI on the Docker page within Unraid.",
-  "category": "GameServers:",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",
