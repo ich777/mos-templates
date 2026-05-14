@@ -13,6 +13,7 @@
   "project": "https://www.steampowered.com/",
   "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
   "description": "This Docker will download and install SteamCMD. It will also install Sons Of The Forest and run it.\r\n\r\n**SERVERNAME:** 'Sons Of The Forest Docker Server'\r\n**SERVERPASSWORD:** 'Docker'\r\n(you can change this in your SERVERFOLDER/userdata/dedicatedserver.cfg)\r\n\r\nBETA Warning: Since this Docker runs with WINE it's marked as BETA, i can not guarantee if the server is running always as expected!\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\n**WARNING:** You have to open the ports in your firewall as listed in this template, if not the server will not properly start.\r\nIf you want LAN play only you have to edit the dedicatedserver.cfg file and set the \"LanOnly\" flag to: \"true\" (without double quotes).\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "SteamCMD",
