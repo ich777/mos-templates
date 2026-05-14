@@ -13,6 +13,7 @@
   "project": "https://www.steampowered.com/",
   "support": "https://github.com/ich777/docker-zandronum/issues",
   "description": "This Docker will download and install Zandronum Server and run it.\n\nZandronum brings classic Doom into the 21st century, maintaining the essence of what has made Doom great for so many years and, at the same time, adding new features to modernize it, creating a fresh, fun new experience.\n\nATTENTION: You have to place your wad files into the '/wads' folder to complete the startup of the server (If you place more than one wad file in the folder you have to append the GAME_PARAMS with for example: '-iwad DOOM2.WAD' - without quotes - to load like in this example DOOM2, also note that the wad file is case sensitive).",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",
