@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Host Path 1",
-      "host": "/mnt/nvme/appdata/redis",
+      "host": "/mnt/cache/appdata/redis",
       "container": "/data",
       "description": null,
       "required": false
