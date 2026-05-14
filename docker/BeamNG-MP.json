@@ -13,6 +13,7 @@
   "project": "https://beammp.com/",
   "support": "https://github.com/ich777/docker-beamng-mp-server",
   "description": "",
+  "category": [ "Game Server" ],
   "paths": [
     {
       "name": "ServerFiles",
