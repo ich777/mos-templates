@@ -1,0 +1,136 @@
+{
+  "name": "V-Rising",
+  "repo": "ghcr.io/ich777/steamcmd:vrising",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/vrising.png",
+  "project": "https://steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install V Rising and run it.\r\n\r\n**Save Files:** The save files are located in: .../vrising/save-data/Saves\r\n**Config Files:** The config files are located in: .../vrising/save-data/Settings\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/vrising",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP - Game Ports",
+      "host": "9876-9877",
+      "container": "9876-9877",
+      "protocol": "udp",
+      "description": "UDP Game Ports (if you need other ports please delete this entry and create a new port mapping, also don't forget to change the ports in the config file which is located at .../vrising/save-data/Settings/ServerHostSettings.json).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "1829350",
+      "description": "The GAME_ID that the container download at startup.\r\nIf you want to install a static or beta version of the game change the value to: '1829350 -beta YOURBRANCH' (without quotes, replace YOURBRANCH with the branch or version you want to install).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Server Name",
+      "key": "SERVER_NAME",
+      "value": "V Rising Docker",
+      "description": "Enter your preferred server name.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "World Name",
+      "key": "WORLD_NAME",
+      "value": "world1",
+      "description": "Enter your prefered world name.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Game Parameters",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter additional game startup parameters if needed, otherwise leave empty.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "BepInEx",
+      "key": "ENABLE_BEPINEX",
+      "value": null,
+      "description": "If you want to enable BepInEx for V Rising set this variable to 'true' (without quotes).\r\nFor more information please refer to this site: https://v-rising.thunderstore.io/package/BepInEx/BepInExPack_V_Rising/",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

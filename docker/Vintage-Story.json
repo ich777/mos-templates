@@ -1,0 +1,96 @@
+{
+  "name": "Vintage-Story",
+  "repo": "ghcr.io/ich777/vintagestory",
+  "registry": "https://hub.docker.com/r/ich777/vintagestory/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/vintagestory.png",
+  "project": "https://www.vintagestory.at/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This is a Basic Vintage Story Server it will download and install Vintage Story Server and run it.\r\n\r\nUPDATE NOTICE: The container will check on every start/restart if there is a newer version available.\r\n\r\nCONSOLE: To connect to the console open up the terminal on the host machine and type in: 'docker exec -u vintagestory -ti NAMEOFYOURCONTAINER screen -xS VintageStory' (without quotes) to exit the screen session press CTRL+A and then CTRL+D or simply close the terminal window in the first place.",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/vintagestory",
+      "container": "/vintagestory",
+      "mode": "rw",
+      "description": "Data Path",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP - GamePort",
+      "host": "42420",
+      "container": "42420",
+      "protocol": "tcp",
+      "description": "TCP GamePort (if you need another port, please delete this entry and create a new TCP Port with the required port number, also don't forget to change it in your configuration).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Vintage Story Release Channel",
+      "key": "VS_CHANNEL",
+      "value": "stable",
+      "description": "Select which release channel you want to use (valid values are 'stable' &amp; 'unstable' without quotes).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Static Version",
+      "key": "STATIC_V",
+      "value": null,
+      "description": "If needed set a static version to prevent the container from updating (eg: '1.19.7' without quotes). Leave empty for automatic updates.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Extra Startup Parameters",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Extra startup parameters (leave empty if you don't need it).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

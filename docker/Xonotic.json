@@ -1,0 +1,96 @@
+{
+  "name": "Xonotic",
+  "repo": "ghcr.io/ich777/xonotic",
+  "registry": "https://hub.docker.com/r/ich777/xonotic/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/xonotic.png",
+  "project": "https://www.xonotic.org/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install the preferred version of Xonotic.\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: If you want to update the game simply change the version number.",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/xonotic",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP - Game Port",
+      "host": "26000",
+      "container": "26000",
+      "protocol": "udp",
+      "description": "UDP Gameport (if you need another port, please delete this entry and create a new UDP Port with the required port number)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "EXTRA_GAME_PARAMS",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter your extra start up commands for the server if needed.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Game Version",
+      "key": "GAME_VERSION",
+      "value": "0.8.5",
+      "description": "Enter the preferred game version to download or update.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Basic Download URL",
+      "key": "BASIC_URL",
+      "value": "https://dl.xonotic.org/",
+      "description": "Looks something like this: https://dl.xonotic.org/",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

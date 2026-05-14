@@ -1,0 +1,259 @@
+{
+  "name": "WurmUnlimited",
+  "repo": "ghcr.io/ich777/steamcmd:wurmunlimited",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/wurmunlimited.png",
+  "project": "https://www.steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install Wurm Unlimited with or without the Server-ModLauncher and run it.\r\n(You can also copy over the 'Creative' or 'Adventure' folder if you want to create a Server with the provided Servertool that comes with the game)\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/steamcmd",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/wurmunlimited",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UPD1",
+      "host": "8766",
+      "container": "8766",
+      "protocol": "udp",
+      "description": "Container Port: 8766",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP2",
+      "host": "27020",
+      "container": "27020",
+      "protocol": "udp",
+      "description": "UDP Queryport (if you need another port, please delete this entry and create a new UDP Port with the required port number, also don't forget to click an 'Show more settings ...",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP1",
+      "host": "8766",
+      "container": "8766",
+      "protocol": "tcp",
+      "description": "Container Port: 8766",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP2",
+      "host": "3724",
+      "container": "3724",
+      "protocol": "tcp",
+      "description": "TCP Gameport (if you need another port, please delete this entry and create a new TCP Port with the required port number, also don't forget to click an 'Show more settings ...",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "402370",
+      "description": "The GAME_ID that the container download at startup.\r\n(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Enable Mod Launcher",
+      "key": "MOD_LAUNCHER",
+      "value": null,
+      "description": "To enable the Server-ModLauncher set it to 'true' (without quotes) otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Servrname",
+      "key": "WU_SERVERNAME",
+      "value": "DockerServer",
+      "description": "Name of the Server",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Server Password",
+      "key": "WU_PWD",
+      "value": "Docker",
+      "description": "Server Password to join",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Admin Password",
+      "key": "WU_ADMINPWD",
+      "value": "adminDocker",
+      "description": "Your Admin Password",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Max Players",
+      "key": "WU_MAXPLAYERS",
+      "value": "150",
+      "description": "Define the maximum players on the server",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "GAME_PORT",
+      "key": "GAME_PORT",
+      "value": "3724",
+      "description": "Container Variable: GAME_PORT",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "QUERYPORT",
+      "key": "WU_QUERYPORT",
+      "value": "27020",
+      "description": "Container Variable: WU_QUERYPORT",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Homeserver",
+      "key": "WU_HOMESERVER",
+      "value": "true",
+      "description": "If set to 'true' (without quotes) Server is a homeserver and belongs to a single kingdom.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "HOMEKINGDOM",
+      "key": "WU_HOMEKINGDOM",
+      "value": "4",
+      "description": "If you're using the Adventure base, use 1, 2, or 3. || If you're using Creative, use 4. || Kingdom numbers: 0 - No kingdom | 1 - Jen-Kellon | 2 - Mol-Rehan | 3 - Horde of the Summoned | 4 - Freedom",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "GAME_MODE",
+      "key": "GAME_MODE",
+      "value": "Creative",
+      "description": "Choose between 'Adventure' and 'Creative' (without quotes) or copy your own map to the root of the serverfolder and define the name of the mapfolder here",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "LOGINSERVER",
+      "key": "WU_LOGINSERVER",
+      "value": "true",
+      "description": "If set to 'false' the server is intended to connect to another server who is the loginserver.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "EPICSETTINGS",
+      "key": "WU_EPICSERVERS",
+      "value": "false",
+      "description": "If set to true the server will follow the rules of the Epic servers in Wurm Online",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Extra Startup Parmeters",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter your extra start up commands for the server if needed.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}
