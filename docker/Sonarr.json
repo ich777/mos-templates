@@ -24,7 +24,7 @@
     },
     {
       "name": "TV Shows",
-      "host": "/mnt/cache/TV-Shows/",
+      "host": "/mnt/main/Media/TV Shows",
       "container": "/mnt/tv",
       "mode": "rw",
       "description": "Path to your TV Shows&lt;br&gt;\r\n&lt;br&gt;\r\n&lt;b&gt;WARNING:&lt;/b&gt; &lt;br&gt;\r\nThis style of paths has a performance and disk usage impact: &lt;b&gt;slow, I/O intensive moves&lt;/b&gt; and &lt;b&gt;wasted disk space&lt;/b&gt;.\r\n&lt;br&gt;\r\nSee https://trash-guides.info/hardlinks/#unraid for details.",
