@@ -100,7 +100,7 @@
       "description": null,
       "required": true,
       "mask": false
-    }
+    },
     {
       "name": "Host Key 9",
       "key": "MACHINE_LEARNING_WORKER_TIMEOUT",
