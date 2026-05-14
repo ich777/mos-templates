@@ -1,0 +1,73 @@
+{
+  "name": "Gotify-On-Start",
+  "repo": "ghcr.io/ich777/gotify-on-start",
+  "registry": "https://hub.docker.com/r/ich777/gotify-on-start",
+  "network": "host",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": null,
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/donegear.png",
+  "project": "https://hub.docker.com/r/ich777/gotify-on-start",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "This is a simple container that sends a message when the container is started (needed this for a headless machine to know when I can connect or better speaking start up the VM's with WOL).",
+  "category": "Tools:Utilities",
+  "paths": [],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Gotify Server URL",
+      "key": "GOTIFY_URL",
+      "value": null,
+      "description": "Your Gotify Server URL goes here (please note that you have to enter the URL in this format: 'https://push.example.net/' without quotes and with a trailing slash '/').",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Gotify App Token",
+      "key": "GOTIFY_TOKEN",
+      "value": null,
+      "description": "Gotify App Token goes here.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Gotify Message Title",
+      "key": "GOTIFY_TITLE",
+      "value": "Startup Complete",
+      "description": "Customized Gotify Message Title here.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Gotify Message",
+      "key": "GOTIFY_MESSAGE",
+      "value": "Server is now Online!",
+      "description": "Customized Gotify Message here.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Gotify Priority",
+      "key": "GOTIFY_PRIORITY",
+      "value": "5",
+      "description": "Customize the Gotify Priority ('0': Low Priority ; '5': Normal Priority ; '9': High Priority)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

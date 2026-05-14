@@ -1,0 +1,107 @@
+{
+  "name": "OpenMW-TES3MP",
+  "repo": "ghcr.io/ich777/docker-openmw-tes3mp",
+  "registry": "https://hub.docker.com/r/ich777/docker-openmw-tes3mp/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/openmwtes3mp.png",
+  "project": "https://tes3mp.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "TES3MP is a project adding multiplayer functionality to OpenMW, a free and open source engine recreation of the popular Bethesda Softworks game \"The Elder Scrolls III: Morrowind\".\r\n\r\nAs of version 0.7.0, TES3MP is fully playable, providing very extensive player, NPC, world and quest synchronization, as well as state saving and loading, all of which are highly customizable via serverside Lua scripts.\r\n\r\nRemaining gameplay problems mostly relate to AI and the synchronization of clientside script variables.\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/openmw-tes3mp",
+      "container": "/openmw",
+      "mode": "rw",
+      "description": "Main Data Path",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP - GamePort",
+      "host": "25565",
+      "container": "25565",
+      "protocol": "tcp",
+      "description": "TCP Gameport (if you need another port, please delete this entry and create a new TCP Port with the required port number, also don't forget to change the port number in the config!)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP - GamePort",
+      "host": "25565",
+      "container": "25565",
+      "protocol": "udp",
+      "description": "UDP Gameport (if you need another port, please delete this entry and create a new UDP Port with the required port number, also don't forget to change the port number in the config!)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Game Version",
+      "key": "GAME_V",
+      "value": "latest",
+      "description": "Preferred game version goes here (set to ‘latest’ to download the latest and check on every startup if there is a newer version available)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Extra Game Parameters",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Extra startup Parameters if needed (leave empty if not needed)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "0000",
+      "description": "Permissions for newly created files. Don’t change unless you are knowing what you are doing!",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

@@ -1,0 +1,138 @@
+{
+  "name": "MultiTheftAuto",
+  "repo": "ghcr.io/ich777/mtaserver",
+  "registry": "https://hub.docker.com/r/ich777/mtaserver/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:22005]/",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/mta.png",
+  "project": "https://www.minecraft.net/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install Multi Theft Auto SERVERNAME: Docker MTA Server SERVERPASSWORD: Docker.\r\n\r\nIf you want to connect to the console open a terminal and enter 'docker exec -u mta -ti NAMEOFYOURCONTAINER screen -xS MTA' (without quotes), to disconnect close the window.\r\n\r\nUPDATE NOTICE: You can Force Update this Container (please note that you have to set Download Resources to 'true' and leave Skip Basicconfiguration blank to download everything new).",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/multitheftauto",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP1 - Game Port",
+      "host": "22003",
+      "container": "22003",
+      "protocol": "udp",
+      "description": "Container Port: 22003",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP2 - ASE Port",
+      "host": "22126",
+      "container": "22126",
+      "protocol": "udp",
+      "description": "Game Port +123",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP - http Port",
+      "host": "22005",
+      "container": "22005",
+      "protocol": "tcp",
+      "description": "Container Port: 22005",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Extra Game Parameters",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter your extra startup parameters otherwise leave blank!",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Skip Baseconfig",
+      "key": "SKIP_BASECONFIG_CHK",
+      "value": null,
+      "description": "Set to 'true' (without quotes) to skip the download of the Basic Configuration files.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Download Resources",
+      "key": "DOWNLOAD_RESOURCES",
+      "value": "true",
+      "description": "Set to 'true' (without quotes) to download the resources, otherwise leave blank.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Force Update",
+      "key": "FORCE_UPDATE",
+      "value": null,
+      "description": "Set to 'true' (without quotes) to redownload the whole server (please note that you have to set Download Resources to 'true' and leave Skip Basicconfiguration blank to download everything new).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Logfile",
+      "key": "LOGFILE_DIR",
+      "value": "multitheftauto_linux_x64/mods/deathmatch/logs/server.log",
+      "description": "Change only if you know what you are doing.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

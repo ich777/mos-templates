@@ -1,0 +1,148 @@
+{
+  "name": "DontStarveTogether",
+  "repo": "ghcr.io/ich777/steamcmd:dontstarve",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/dontstarve.png",
+  "project": "https://www.klei.com/games/dont-starve-together",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install Don't Starve Together and run it.\r\n\r\nATTENTION: After the first complete startup (you can see it in the log) copy your 'cluster_token.txt' in the 'token/Cluster_1' folder and restart the container.\r\nFirst Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/steamcmd",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/dontstarve/serverfiles",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Token",
+      "host": "/mnt/cache/appdata/dontstarve/token",
+      "container": "/serverdata/.klei/DoNotStarveTogether",
+      "mode": "rw",
+      "description": "Put your created 'cluster_token.txt' in the 'Cluster_1' subfolder.",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP1 - Game",
+      "host": "10890",
+      "container": "10890",
+      "protocol": "udp",
+      "description": "Container Port: 10890",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP2 - Master Server",
+      "host": "27016",
+      "container": "27016",
+      "protocol": "udp",
+      "description": "Container Port: 27016",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP3 - Authentication",
+      "host": "8766",
+      "container": "8766",
+      "protocol": "udp",
+      "description": "Container Port: 8766",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "343050",
+      "description": "The GAME_ID that the container download at startup.\r\n(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Caves",
+      "key": "CAVES",
+      "value": "true",
+      "description": "Delete 'true' if you don't want Caves on your Server.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Force 64bit mode",
+      "key": "FORCE_X64",
+      "value": "true",
+      "description": "Set to true if you want to run the game in 64bit mode or leave empty to run it in 32bit mode.",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

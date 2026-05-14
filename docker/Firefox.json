@@ -1,0 +1,126 @@
+{
+  "name": "Firefox",
+  "repo": "ghcr.io/ich777/firefox",
+  "registry": "https://hub.docker.com/r/ich777/firefox/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped --shm-size=2G",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/vnc.html?autoconnect=true",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/firefox.png",
+  "project": "https://www.mozilla.org/firefox/",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "This container will download and install Firefox in the preferred version and language.\r\n\r\nUPDATE: The container will check on every restart if there is a newer version available.\r\n\r\nATTENTION: If you want to change the language, you have to delete every file in the 'firefox' directory except the 'profile' folder.\r\n\r\nRESOLUTION: You can also change the resolution from the WebGUI, to do that simply click on 'Show more settings...' (on a resolution change it can occour that the screen is not filled entirely with the Firefox window, simply restart the container and it will be fullscreen again).",
+  "category": "Productivity: Tools:",
+  "paths": [
+    {
+      "name": "Data Dir",
+      "host": "/mnt/cache/appdata/firefox/",
+      "container": "/firefox",
+      "mode": "rw",
+      "description": "Data Path",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "noVNC WebGUI",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "TCP noVNC WebGUI",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Preferred Firefox Version",
+      "key": "FIREFOX_V",
+      "value": "latest",
+      "description": "Enter your preferred version or 'latest' (without quotes) to grab the latest version.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Preferred Firefox Language",
+      "key": "FIREFOX_LANG",
+      "value": "en-US",
+      "description": "Enter your preferred language here (eg: 'en-US', 'de', 'fr', 'en-UK',... you can get a full list here: https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Custom Screen Width",
+      "key": "CUSTOM_RES_W",
+      "value": "1280",
+      "description": "Minimum screen width 1000 pixels",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Custom Screen Height",
+      "key": "CUSTOM_RES_H",
+      "value": "768",
+      "description": "Minimum screen hight 880 pixels",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Extra Parameters",
+      "key": "EXTRA_PARAMETERS",
+      "value": null,
+      "description": "If needed enter extra startup parameters here otherwise leave empty.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Umask",
+      "key": "UMASK",
+      "value": "000",
+      "description": "Container Variable: UMASK",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

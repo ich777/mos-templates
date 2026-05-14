@@ -1,0 +1,86 @@
+{
+  "name": "CounterStrike2D",
+  "repo": "ghcr.io/ich777/cs2dserver",
+  "registry": "https://hub.docker.com/r/ich777/cs2dserver/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/cs2d.png",
+  "project": "https://www.steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install CounterStrike 2D.\r\nCounterStrike 2D is a free to play top down shooter (you can get it on Steam or at https://www.cs2d.com/)",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/cs2d",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP - Game Port",
+      "host": "36963",
+      "container": "36963",
+      "protocol": "udp",
+      "description": "Container Port: 36963",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Extra Game Parameters",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter your extra startup parameters otherwise leave blank!",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Force Update",
+      "key": "FORCE_UPDATE",
+      "value": null,
+      "description": "Put in the value 'true' (without quotes) to Force Update the game otherwise leave blank. Don't forget to delete the value after updating.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

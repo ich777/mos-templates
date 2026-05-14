@@ -1,0 +1,97 @@
+{
+  "name": "AssettoCorsaCompetizione",
+  "repo": "ghcr.io/ich777/accompetizione-server",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/acc.png",
+  "project": "https://www.assettocorsa.it/competizione/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will run the AssettoCorsa Competizione Server.\r\n\r\nATTENTION: Please download the Assetto Corsa Competizione Dedicated Server from the Tools section in Steam. After the download finished right click Assetto Corsa Competizione Dedicated Server -&gt; Manage -&gt; Browse local files and copy over the 'accServer.exe' from the directory .../server/accServer.exe to the root directory from this container and restart the container.\r\n\r\nNotice: The initial servername and credentials are: 'ACC Docker Server' Password: 'Docker' AdminPassword: 'adminDocker' (all config files are located in the '/cfg' directory in your serverfolder).\r\n\r\nServer List: Please note that it takes one or two minutes after the container is startet that the game is visible on the in game server list.",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/assettocorsacompetizione",
+      "container": "/acc",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP",
+      "host": "9201",
+      "container": "9201",
+      "protocol": "tcp",
+      "description": "TCP Gameport (if you need another port, please delete this entry and create a new TCP Port with the required port number, also don't forget to change your 'configuration.json' file with the corresponding port number)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP",
+      "host": "9201",
+      "container": "9201",
+      "protocol": "udp",
+      "description": "UDP Gameport (if you need another port, please delete this entry and create a new UDP Port with the required port number, also don't forget to change your 'configuration.json' file with the corresponding port number)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "000",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "DATA_PERM",
+      "key": "DATA_PERM",
+      "value": "770",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

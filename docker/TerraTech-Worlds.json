@@ -1,0 +1,116 @@
+{
+  "name": "TerraTech-Worlds",
+  "repo": "ghcr.io/ich777/steamcmd:terratechworlds",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/terratechworlds.png",
+  "project": "https://store.steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install TerraTech Worlds and run it.\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/terratech-worlds",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP - Game Port",
+      "host": "7777",
+      "container": "7777",
+      "protocol": "udp",
+      "description": "UDP Game Port (If you need another port please make sure to delete this entry and create a new UDP port entry with the host and container port set to the same, don't forget to change the port in your config file too).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "2533070",
+      "description": "The GAME_ID that the container download at startup.\r\nIf you want to install a static or beta version of the game change the value to: '2533070 -beta YOURBRANCH' (without quotes, replace YOURBRANCH with the branch or version you want to install).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Game Parameters",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter your game parameters.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "0000",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

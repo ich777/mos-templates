@@ -1,0 +1,149 @@
+{
+  "name": "Memories-of-Mars",
+  "repo": "ghcr.io/ich777/steamcmd:memoriesofmars",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/memoriesofmars.png",
+  "project": "https://memoriesofmars.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install Memories of Mars and run it.\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nONLINE PLAY: Please be sure to set the variable MULTIHOME to the IP of your Unraid server otherwise you can't connect to the gameserver!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/steamcmd",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/memoriesofmars",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP 1 - Game Port",
+      "host": "7777",
+      "container": "7777",
+      "protocol": "tcp",
+      "description": "TCP Game Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP 1 - Game Port",
+      "host": "7777",
+      "container": "7777",
+      "protocol": "udp",
+      "description": "UDP Game Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP 2 - Beacon Port",
+      "host": "15000",
+      "container": "15000",
+      "protocol": "tcp",
+      "description": "TCP Beacon Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP 2 - Beacon Port",
+      "host": "15000",
+      "container": "15000",
+      "protocol": "udp",
+      "description": "UDP Beacon Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "897590",
+      "description": "The GAME_ID that the container download at startup.\r\n(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Extra Game Parameters",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter Extra Startup Parameters here if needed, otherwise leave empty (eg: '-port=7778', '-maxplayers=12')",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Multihome Target",
+      "key": "MULTIHOME",
+      "value": null,
+      "description": "This has to be the IP of your Unraid server otherwise you can't connect to the game and the game will lost connection to the server!",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

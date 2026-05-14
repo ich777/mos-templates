@@ -1,0 +1,170 @@
+{
+  "name": "FiveM",
+  "repo": "ghcr.io/ich777/fivemserver",
+  "registry": "https://hub.docker.com/r/ich777/fivemserver/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/fivem.png",
+  "project": "https://fivem.net/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "With this Docker you can run FiveM (GTA V MOD SERVER) it will automatically download the latest version or if you want to updated it yourself set the ‘Manual Updates’ (in the 'Show more settings' tab down below) to ‘true’ (without quotes). The Docker will automatically extract it and download all other required files (resources, server.cfg). You can get fx.tar.xz from here: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/ To run this container you must provide a valid Server Key (you can get them from here: https://keymaster.fivem.net/) and your prefered Server Name.\r\n\r\nUpdate Notice: Simply restart the container and it will download the newest version or if you set ‘Manual Updates’ to ‘true’ place the new fx.tar.xz in the main directory and restart the container.\r\n\r\nWEB CONSOLE: You can connect to the FiveM console by opening your browser and go to HOSTIP:9016 (eg: 192.168.1.1:9016) or click on WebUI on the Docker page within Unraid.",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/fivem",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP 1",
+      "host": "30110",
+      "container": "30110",
+      "protocol": "tcp",
+      "description": "Container Port: 30110",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP 2",
+      "host": "30120",
+      "container": "30120",
+      "protocol": "tcp",
+      "description": "Container Port: 30120",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP 1",
+      "host": "30110",
+      "container": "30110",
+      "protocol": "udp",
+      "description": "Container Port: 30110",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP 2",
+      "host": "30120",
+      "container": "30120",
+      "protocol": "udp",
+      "description": "Container Port: 30120",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP - WebConsole",
+      "host": "9016",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "WebConsole (by default, you can connect to the FiveM console by opening your browser and go to HOSTIP:9016 - eg: 192.168.1.1:9016 - or click on WebUI on the Docker page within Unraid).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "ConfigFile",
+      "key": "GAME_CONFIG",
+      "value": "server.cfg",
+      "description": "You can edit the server.cfg after the first start (if you don't want to use the server.cfg then leave this field empty. For exampele: if you plan to use txAdmin you have to add another port in the template with the host and container port 40120, you then can connect to txAdmin with YOURSERVERIP:40120).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Start Variables",
+      "key": "START_VARS",
+      "value": null,
+      "description": "Extra start variables.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Server Name",
+      "key": "SRV_NAME",
+      "value": null,
+      "description": "Your Servername",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Server Key",
+      "key": "SERVER_KEY",
+      "value": null,
+      "description": "Your Server Key from: https://keymaster.fivem.net/",
+      "required": true,
+      "mask": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "FiveM Artifacts Server Adress",
+      "key": "SRV_ADR",
+      "value": "https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/",
+      "description": "Looks something like this: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Manual Updates",
+      "key": "MANUAL_UPDATES",
+      "value": null,
+      "description": "Set this to 'true' without quotes to update your server manually (otherwise leave blank)",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

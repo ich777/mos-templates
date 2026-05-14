@@ -1,0 +1,192 @@
+{
+  "name": "KillingFloor",
+  "repo": "ghcr.io/ich777/steamcmd:killingfloor",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/killingfloor.png",
+  "project": "https://www.tripwireinteractive.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install Killing Floor and run it.\r\n\r\nTo run this container you must provide a valid Steam username and password since the game needs a valid account to download (NOTICE: You must disable Steam Guard otherwise this container will not work, Steam recommens to make a new Steam account for dedicated servers).\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/steamcmd",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/killingfloor",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP1 - Game",
+      "host": "7707",
+      "container": "7707",
+      "protocol": "udp",
+      "description": "Container Port: 7707",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP2 - Query",
+      "host": "7708",
+      "container": "7708",
+      "protocol": "udp",
+      "description": "Container Port: 7708",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP3 - GameSpy Query",
+      "host": "7717",
+      "container": "7717",
+      "protocol": "udp",
+      "description": "Container Port: 7717",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP1 - Master Server Browser",
+      "host": "28852",
+      "container": "28852",
+      "protocol": "tcp",
+      "description": "Container Port: 28852",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP4 - Master Server Browser:",
+      "host": "28852",
+      "container": "28852",
+      "protocol": "udp",
+      "description": "Container Port: 28852",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP2 - Admin Port",
+      "host": "8075",
+      "container": "8075",
+      "protocol": "tcp",
+      "description": "Container Port: 8075",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP5 - Steam Port",
+      "host": "20560",
+      "container": "20560",
+      "protocol": "udp",
+      "description": "Container Port: 20560",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "215360",
+      "description": "The GAME_ID that the container download at startup.\r\n(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "GAME_PARAMS",
+      "key": "GAME_PARAMS",
+      "value": "KF-bioticslab.rom?game=KFmod.KFGameType?VACSecured=true?MaxPlayers=6",
+      "description": "Type in your Extra Game Parameters seperated with - (like: KF-bioticslab.rom?game=KFmod.KFGameType?VACSecured=true?MaxPlayers=6 -DisableDeathSpectator)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Steam-Username",
+      "key": "USERNAME",
+      "value": null,
+      "description": "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard).",
+      "required": true,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Steam-Password",
+      "key": "PASSWRD",
+      "value": null,
+      "description": "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard).",
+      "required": true,
+      "mask": true,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

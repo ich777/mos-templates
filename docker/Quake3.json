@@ -1,0 +1,126 @@
+{
+  "name": "Quake3",
+  "repo": "ghcr.io/ich777/quake3",
+  "registry": "https://hub.docker.com/r/ich777/quake3",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/quake3.png",
+  "project": "https://www.idsoftware.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install Quake III Server (You have to copy your .pk3 files from your game directory to your server).\r\n\r\nPK3 Files: After the container started the first time you have to copy your pak*.pk3 files from your Quake III Arena directory into your server directory: .../.q3a/baseq3/ (i strongly recommend you to place all your pak*.pk3 files into it) after that simply restart the container and it would start the server.\r\n\r\nConfiguring the server: Your server.cfg and maprotationfile.cfg is located into your server directory and .../.q3a/baseq/ (after you successfully started the Quake III Server once).",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/quake3",
+      "container": "/quake3",
+      "mode": "rw",
+      "description": "Container Path: /quake3",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP - Gameports",
+      "host": "27960-27963",
+      "container": "27960-27963",
+      "protocol": "udp",
+      "description": "The standard Game Port +2 (If you want to change the standard game port please click on more settings and change the start port and then delete this entry and create a new one with the preferred ports).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_PARAMS",
+      "key": "GAME_PARAMS",
+      "value": "+set sv_punkbuster 0 +set fs_game osp +set com_hunkMegs 32",
+      "description": "The startup parameters for the server (only change if you know what you are doing!)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Q3_MAP",
+      "key": "Q3_MAP",
+      "value": "q3dm1",
+      "description": "The initial map wich the server would start.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "000",
+      "description": "Container Variable: UMASK",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Quake III Base Port",
+      "key": "Q3_PORT",
+      "value": "27960",
+      "description": "Base Port",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Pointrelease Download URL",
+      "key": "DL_URL_PR",
+      "value": "https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/quake3/linux/linuxq3apoint-1.32b-3.x86.run",
+      "description": "Only change if you know what you're doing!",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Patch URL",
+      "key": "DL_URL_PATCH",
+      "value": "https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/quake3/quake3-1.32c.zip",
+      "description": "Only change if you know what you're doing!",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

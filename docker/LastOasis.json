@@ -1,0 +1,157 @@
+{
+  "name": "LastOasis",
+  "repo": "ghcr.io/ich777/steamcmd:lastoasis",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/lastoasis.png",
+  "project": "https://store.steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install Last Oasis and run it.\r\n\r\n**Customer &amp; Provider Key:** You have to first create your own Provider Key here: https://myrealm.lastoasis.gg and fill in the generated Provider Key and Custom Key in the template.\r\n\r\n**After the first server start:** After the first sever start you can mange your server at: https://myrealm.lastoasis.gg you should see your server there.\r\nCreate a Realm, Add and Activate a Tile and wait for the server to load it, after that you can join your dedicated server (keep in mind that every Tile needs it's own dedicated server and each dedicated server needs it's own Provider Key!).\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/lastoasis",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP1 - Game Port",
+      "host": "5555",
+      "container": "5555",
+      "protocol": "udp",
+      "description": "UDP Game Port (if you need another port delete this entry and create a new Port mapping with the same Port for the Host and Container Port, also don't forget to change the port value in the Game Parameters!)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP2 - Query Port",
+      "host": "27015",
+      "container": "27015",
+      "protocol": "udp",
+      "description": "UDP Query Port (if you need another port delete this entry and create a new Port mapping with the same Port for the Host and Container Port, also don't forget to change the QueryPort value in the Game Parameters!)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "920720",
+      "description": "The GAME_ID that the container download at startup.\r\nIf you want to install a static or beta version of the game change the value to: '920720 -beta YOURBRANCH' (without quotes, replace YOURBRANCH with the branch or version you want to install).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Identifier",
+      "key": "IDENTIFIER",
+      "value": "dockeroasis",
+      "description": "Enter your preferred server identifier.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Server Slots",
+      "key": "SLOTS",
+      "value": "20",
+      "description": "Enter the maximum server slots.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Customer Key",
+      "key": "CUSTOMER_KEY",
+      "value": null,
+      "description": "Your Customer Key goes here (You can get your Customer Key here: https://myrealm.lastoasis.gg  \r\nLog in -&gt; click on the Hosting drop down and select Providers).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Provider Key",
+      "key": "PROVIDER_KEY",
+      "value": null,
+      "description": "Your Provider Key goes here (You can get your Provider Key here: https://myrealm.lastoasis.gg  \r\nLog in -&gt; click on the Hosting drop down -&gt; select Providers -&gt; click Add Key -&gt; enter a Name and click Add).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Game Parameters",
+      "key": "GAME_PARAMS",
+      "value": "-port=5555 -QueryPort=27015 -NoLiveServer -EnableCheats",
+      "description": "Enter your game parameters.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

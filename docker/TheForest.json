@@ -1,0 +1,128 @@
+{
+  "name": "TheForest",
+  "repo": "ghcr.io/ich777/steamcmd:theforest",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/theforest.png",
+  "project": "https://www.steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install The Forest and run it. SERVERNAME: 'The Forest Docker' SERVERPASSWORD: 'Docker' ADMINPASSWORD: 'adminDocker' (you can change this in your SERVERFOLDER/config/config.cfg)\r\n\r\nBETA Warning: Since this Docker runs with WINE it's marked as BETA, i can not guarantee if the server is running always as expected!\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\n**WARNING:** You have to create a Steam Token to play Online.\r\nCreate your token here: https://steamcommunity.com/dev/managegameservers (please note that you must generate the token for the APPID: '242760' and every gameserver needs it's own token!!!). After creating your token you have to go to the file .../theforest/config/config.txt and append your token to the line that starts with: serverSteamAccount (eg: serverSteamAccount YOURTOKEN).\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/steamcmd",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/theforest",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP1 - Steam Port",
+      "host": "8766",
+      "container": "8766",
+      "protocol": "udp",
+      "description": "Container Port: 8766",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP2 - Game Port",
+      "host": "27015",
+      "container": "27015",
+      "protocol": "udp",
+      "description": "Container Port: 27015",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP3 - Steam Query Port",
+      "host": "27016",
+      "container": "27016",
+      "protocol": "udp",
+      "description": "Container Port: 27016",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "556450",
+      "description": "The GAME_ID that the container download at startup.\r\n(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "GAME_PARAMS",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter your startup commands if needed.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

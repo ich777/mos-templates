@@ -1,0 +1,117 @@
+{
+  "name": "Icarus",
+  "repo": "ghcr.io/ich777/steamcmd:icarus",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/icarus.png",
+  "project": "https://www.steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install Icarus and run it.\r\n\r\nInitial server configuration:  \r\n**Servername:** Icarus Docker **Password:** Docker  **AdminPassword:** adminDocker  \r\n\r\n**ATTENTION:** First startup can take very long since it downloads the gameserver files and it also installs the runtimes which can take quite some time! \r\n\r\n**First Start Notice:** On First startup the container installs the necessary runtimes and it might seem that the container hangs but please be patient since the installation can take very long on some systems (5 minutes+).\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Server Files",
+      "host": "/mnt/cache/appdata/icarus",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP1 - GamePort",
+      "host": "17777",
+      "container": "17777",
+      "protocol": "udp",
+      "description": "UDP GamePort (If you need another port delete this entry and create a new UDP port mapping here in the template with the Container and Host port set to the same as in your GAME_PARAMS).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP2 - SteamPort",
+      "host": "27015",
+      "container": "27015",
+      "protocol": "udp",
+      "description": "UDP SteamPort (If you need another port delete this entry and create a new UDP port mapping here in the template with the Container and Host port set to the same as in your GAME_PARAMS).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "2089300",
+      "description": "The GAME_ID that the container download at startup.\r\n(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "GAME_PARAMS",
+      "key": "GAME_PARAMS",
+      "value": "-SteamServerName=\"Icarus Docker\" -Port=17777 -QueryPort=27015",
+      "description": "Enter your start up commands for the server.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

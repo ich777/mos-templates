@@ -1,0 +1,106 @@
+{
+  "name": "Portfolio-Performance",
+  "repo": "ghcr.io/ich777/portfolio-performance",
+  "registry": "https://hub.docker.com/r/ich777/portfolio-performance",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/vnc.html?autoconnect=true",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/portfolio-performance.png",
+  "project": "https://www.portfolio-performance.info/en/",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "Portfolio Performance is an open source tool to calculate the overall performance of an investment portfolio - across all accounts - using True-Time Weighted Return or Internal Rate of Return.\r\n\r\n**Update:** The container will check on every start/restart if there is a newer version available\r\n\r\n**ATTENTION:** Please save your documents only in the Home directory! Don't save or modify anything inside the 'bin' and 'runtime' folders.\r\n\r\n**INFO:** If the last view is not saved accross container restarts it is recommended to exit the container once after you've configured it to your likings through the WebGUI by clicking File -&gt; Quit, this will ensure that the last view is saved properly.",
+  "category": "Productivity: Tools:Utilities",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/cache/appdata/portfolio-performance",
+      "container": "/portfolio",
+      "mode": "rw",
+      "description": "Data Directory",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebGUI",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "TCP noVNC WebGUI Port",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Custom Screen Width",
+      "key": "CUSTOM_RES_W",
+      "value": "1280",
+      "description": "Minimum screen width 1280 pixels",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Custom Screen Height",
+      "key": "CUSTOM_RES_H",
+      "value": "1024",
+      "description": "Minimum screen hight 1024 pixels",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "DATA_PERM",
+      "key": "DATA_PERM",
+      "value": "770",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "000",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

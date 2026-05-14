@@ -1,0 +1,194 @@
+{
+  "name": "LANCache-Prefill",
+  "repo": "ghcr.io/ich777/lancache-prefill",
+  "registry": "https://hub.docker.com/r/ich777/lancache-prefill",
+  "network": "br0",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/prefill.png",
+  "project": "https://github.com/tpill90/steam-lancache-prefill",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "This container will download and install BattleNetPrefill and/or EpicPrefill and/or SteamPrefill and run the prefill on a cron schedule.\r\n\r\n**Network:** It is recommended to run this container in the same network mode as the LANCache-DNS if used, by default it is set to br0 please change that if you have your LANCache server configured to work network wide on your LAN to the correct network type for your configuration.\r\n\r\n**DNS:** I would strongly recommend that you set the DNS manually to the LANCache-DNS if you haven't it configured to be network wide on your LAN, to do that turn on the advanced view (toggle switch in the top right corner) and at the extra parameters append: --dns=yourLANcacheSERVER (of course replace 'yourLANcacheSERVER' with the address of your LANCache-DNS).\r\n\r\nUpdate Notice: The container will check by default on each start/restart on new updates for BattleNetPrefill and/or EpicPrefill and/or SteamPrefill, this can be disabled if really wanted.\r\n\r\n**BattleNet|Epic|Steam Prefill Notice:** Steam Prefill needs to be configured to work properly, please enter the following commands and/or follow the prompts afterwards, you can close the window when you are finished:\r\n1. Open up a container console\r\n2. Type in 'su ${USER}' and press ENTER\r\n3. Type in 'cd ${DATA_DIR}/(BattleNet|Epic|Steam)Prefill' and press ENTER\r\n4. Type in './(BattleNet|Epic|Steam)Prefill select-apps' and press ENTER\r\n5. Type in './(BattleNet|Epic|Steam)Prefill select-apps' and press ENTER\r\n6. Enter your credentials and/or follow the steps displayed\r\n7. Select the apps you want to prefill and press ENTER\r\n8. Done\r\n\r\n_Notice:_ In the above example you have to choose between BattleNet, Epic or Steam so that it says BattleNetPrefill, EpicPrefill or SteamPrefill instead of (BattleNet|Epic|Steam)Prefill. (these stepps are also displayed in the container log when BatteNet/Epic/Steam isn't/aren't configured yet)\r\n\r\nIf you ever want to change the apps you've selected then follow these steps again.",
+  "category": "Downloaders: Other:",
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/cache/appdata/lancache-prefill",
+      "container": "/lancacheprefill",
+      "mode": "rw",
+      "description": "Main data path",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Enable BattleNetPrefill",
+      "key": "ENABLE_BN",
+      "value": "false",
+      "description": "Set to 'true' or 'false' to enable or disable BattleNetPrefill",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": "false|true"
+    },
+    {
+      "name": "BattleNetPrefill Schedule",
+      "key": "CRON_SCHED_BN",
+      "value": null,
+      "description": "Set your cron schedule for BattleNetPrefill if enabled (by default it is set to 02:00 - head over to https://crontab.guru/ to create your own if you want to customize it)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Enable EpicPrefill",
+      "key": "ENABLE_EPIC",
+      "value": "false",
+      "description": "Set to 'true' or 'false' to enable or disable EpicPrefill",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": "false|true"
+    },
+    {
+      "name": "EpicPrefill Parameters",
+      "key": "PREFILL_PARAMS_EPIC",
+      "value": null,
+      "description": "You can get a full list of parameters over here: https://github.com/tpill90/epic-lancache-prefill#getting-started",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "EpicPrefill Schedule",
+      "key": "CRON_SCHED_EPIC",
+      "value": null,
+      "description": "Set your cron schedule for the EpicPrefill if enabled (by default it is set to 04:00 - head over to https://crontab.guru/ to create your own if you want to customize it)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Enable SteamPrefill",
+      "key": "ENABLE_STEAM",
+      "value": "true",
+      "description": "Set to 'true' or 'false' to enable or disable SteamPrefill (please note that you have to configure SteamPrefill first - to get a tutorial on how to do that please open up the container console after the first start and follow the on screen instructions).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": "true|false"
+    },
+    {
+      "name": "SteamPrefill Parameters",
+      "key": "PREFILL_PARAMS_STEAM",
+      "value": "--recent",
+      "description": "You can get a full list of parameters over here: https://tpill90.github.io/steam-lancache-prefill/detailed-command-usage/Prefill/#options (if you want to only prefill your selected apps then leave this variable empty)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "SteamPrefill Schedule",
+      "key": "CRON_SCHED_STEAM",
+      "value": null,
+      "description": "Set your cron schedule for SteamPrefill if enabled (by default it is set to 02:00 - head over to https://crontab.guru/ to create your own if you want to customize it)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Check for Prefill updates",
+      "key": "UPDATES",
+      "value": "true",
+      "description": "Set to 'true' to enable to check for updates from BattleNetPrefill/SteamPrefill on container start/restart or disable it by setting it to 'false'.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": "true|false"
+    },
+    {
+      "name": "Prefill on Startup",
+      "key": "PREFILL_ONSTARTUP",
+      "value": "false",
+      "description": "Set to 'true' to force a Prefill on every container start/restart (please be carefull with this option and enable only when you know what you are doing!)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": "false|true"
+    },
+    {
+      "name": "Log cleanup",
+      "key": "LOGCLEANUP",
+      "value": "true",
+      "description": "Set to 'true' to clean up the .../logs directory on each start/restart from the container.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": "true|false"
+    },
+    {
+      "name": "Global Schedule",
+      "key": "CRON_SCHED_GLOBAL",
+      "value": "0 2 * * *",
+      "description": "Specify a cron schedule to override the individual schedules for BatteNetPrefill and SteamPrefill.\r\nIt will run on by one at the given cron schedule (BattleNetPrefill will be run first and SteamPrefill afterwards depending if both are enabled)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "DATA_PERM",
+      "key": "DATA_PERM",
+      "value": "770",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "000",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

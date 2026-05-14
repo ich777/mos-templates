@@ -1,0 +1,137 @@
+{
+  "name": "ioquake3",
+  "repo": "ghcr.io/ich777/ioquake3",
+  "registry": "https://hub.docker.com/r/ich777/ioquake3",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/ioquake3.png",
+  "project": "https://ioquake3.org/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install ioquake3 Server (You have to copy your pak0.pk3 file from your game directory to your server).\r\n\r\nPK3 Files: After the container started the first time you have to copy your pak0.pk3 file from your Quake III Arena directory into your server directory: .../.q3a/baseq3/ (i strongly recommend you to place all your pak*.pk3 files into it) after that simply restart the container to start the server.\r\n\r\nWEB CONSOLE: You can connect to the ioquake3 console by opening your browser and go to HOSTIP:9029 (eg: 192.168.1.1:9029) or click on WebUI on the Docker page within Unraid.",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/ioquake3",
+      "container": "/ioquake3",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP - Game Port",
+      "host": "27960",
+      "container": "27960",
+      "protocol": "udp",
+      "description": "Game Port (If you want to change the game port please click on more settings here in the template, change the port, then delete this entry and create a new one with the corresponding port number and UDP only!).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP - WebConsole",
+      "host": "9029",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "WebConsole (by default, you can connect to the ioquake3 console by opening your browser and go to HOSTIP:9021 - eg: 192.168.1.1:9029 - or click on WebUI on the Docker page within Unraid).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_PARAMS",
+      "key": "GAME_PARAMS",
+      "value": "+set dedicated 2 +set sv_allowDownload 1 +set com_hunkmegs 64",
+      "description": "The startup parameters for the server (only change if you know what you are doing!)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Q3_MAP",
+      "key": "Q3_MAP",
+      "value": "q3dm1",
+      "description": "The initial map wich the server would start.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ioquake 3 Base Port",
+      "key": "IOQ3_PORT",
+      "value": "27960",
+      "description": "Base Port",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "ioquake3 Download URL",
+      "key": "DL_URL",
+      "value": "https://files.ioquake3.org/Linux.zip",
+      "description": "Only change if you know what you're doing!",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Patch URL",
+      "key": "DL_URL_PATCH",
+      "value": "https://files.ioquake3.org/quake3-latest-pk3s.zip",
+      "description": "Only change if you know what you're doing!",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "000",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

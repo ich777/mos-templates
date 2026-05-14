@@ -1,0 +1,203 @@
+{
+  "name": "7DaysToDie",
+  "repo": "ghcr.io/ich777/steamcmd:7dtd",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/7dtd.png",
+  "project": "https://www.steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install 7 Days to Die and run it.\r\n\r\nATTENTION: First Startup can take very long since it downloads the gameserver files!\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/steamcmd",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/7dtd",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP - Game details",
+      "host": "26900",
+      "container": "26900",
+      "protocol": "tcp",
+      "description": "Container Port: 26900",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP1 - Steam Master server",
+      "host": "26900",
+      "container": "26900",
+      "protocol": "udp",
+      "description": "Container Port: 26900",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP2 - Steam Communications",
+      "host": "26901",
+      "container": "26901",
+      "protocol": "udp",
+      "description": "Container Port: 26901",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP3 - RakNet",
+      "host": "26902",
+      "container": "26902",
+      "protocol": "udp",
+      "description": "Container Port: 26902",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP4 - UNET",
+      "host": "26903",
+      "container": "26903",
+      "protocol": "udp",
+      "description": "Container Port:",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP2 - Web base control",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "Container Port: 8080",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP3 - Web Panel",
+      "host": "8082",
+      "container": "8082",
+      "protocol": "tcp",
+      "description": "Container Port: 8082",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP5 - Registering at server list",
+      "host": "27015",
+      "container": "27015",
+      "protocol": "udp",
+      "description": "Should be in the range 27015 - 27030, don't forget to set also a different Container Port if you change this value.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "294420",
+      "description": "The GAME_ID that the container download at startup.\r\n(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)\r\nIf you want to use a static version of the game and not always the latest one then enter this: '294420 -beta stable_alpha19.4' or '294420 -beta latest_experimental' (without quotes) if you want to stay for example on alpha19.4.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Serverconfig",
+      "key": "SERVERCONFIG",
+      "value": "serverconfig.xml",
+      "description": "Please change if your serverconfigfile has another name.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "GAME_PARAMS",
+      "key": "GAME_PARAMS",
+      "value": "-logfile 7DaysToDie_Data/output_log.txt $@",
+      "description": "Enter your start up commands for the server.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "BepInEx",
+      "key": "ENABLE_BEPINEX",
+      "value": "false",
+      "description": "If you want to enable BepInEx set this variable to 'true' (without quotes).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

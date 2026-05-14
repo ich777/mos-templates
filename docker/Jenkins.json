@@ -1,0 +1,126 @@
+{
+  "name": "Jenkins",
+  "repo": "ghcr.io/ich777/jenkins",
+  "registry": "https://hub.docker.com/r/ich777/jenkins",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/jenkins.png",
+  "project": "https://jenkins.io/",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "This container will download and install the preferred version of Jenkins and install it.\r\n\r\nUpdate Notice: If set to 'latest' the container will check on every startup if there is a newer version available).\r\n\r\nAll you data is stored in the jenkins/workdir folder in your appdata directory.",
+  "category": "Productivity: Tools:Utilities",
+  "paths": [
+    {
+      "name": "Appdata Path",
+      "host": "/mnt/cache/appdata/jenkins",
+      "container": "/jenkins",
+      "mode": "rw",
+      "description": "Container Path: /jenkins",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "Webport",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "Container Port: 8080",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Jenkins Version",
+      "key": "JENKINS_V",
+      "value": "latest",
+      "description": "Enter the version wich you want to download or set to 'latest' (without quotes) to download the latest version and check on every restart if there is a newer version.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Jenkins Download URL",
+      "key": "JENKINS_URL",
+      "value": "ftp://mirror.serverion.com",
+      "description": "Mirror from wich to download jenkins you can get them from here: http://mirrors.jenkins-ci.org/status.html (Exemple for mirrors are: ftp://mirror.serverion.com | http://mirror.xmission.com | http://mirror.serverion.com | http://ftp-chi.osuosl.org/pub | ...).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Extra Jenkins Startup Paramaters",
+      "key": "EXTRA_JENKINS_PARAMS",
+      "value": null,
+      "description": "Enter extra Jenkins startup parameters if needed.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Extra JVM Startup Parameters",
+      "key": "EXTRA_JVM_PARAMS",
+      "value": null,
+      "description": "Enter extra JVM start parameters if needed.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "000",
+      "description": "Container Variable: UMASK",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Host Key 1",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: uid",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Host Key 2",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: gid",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Runtime Name",
+      "key": "RUNTIME_NAME",
+      "value": "jre21",
+      "description": "The name of the runtime (only change if you know what you are doing).",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

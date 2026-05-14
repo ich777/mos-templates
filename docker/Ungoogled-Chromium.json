@@ -1,0 +1,126 @@
+{
+  "name": "Ungoogled-Chromium",
+  "repo": "ghcr.io/ich777/ungoogled-chromium",
+  "registry": "https://hub.docker.com/r/ich777/ungoogled-chromium/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped --shm-size=2G",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/vnc.html?autoconnect=true",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/chromium.png",
+  "project": "https://www.google.com/chrome/",
+  "support": "https://forums.unraid.net/topic/83786-support-ich777-application-dockers/",
+  "description": "Ungoogled-Chromium is a lightweight approach to removing Google web service dependency from the Chromium project web browser.\r\n- Ungoogled Chromium is Google Chromium, sans dependency on Google web services.\r\n- Ungoogled Chromium retains the default Chromium experience as closely as possible. Unlike other Chromium forks that have their own visions of a web browser, Ungoogled Chromium is essentially a drop-in replacement for Chromium.\r\n- Ungoogled Chromium features tweaks to enhance privacy, control, and transparency. However, almost all of these features must be manually activated or enabled. For more details, see Feature Overview.\r\n\r\n\r\nYou can find the full source code here: https://github.com/Eloston/ungoogled-chromium",
+  "category": "Productivity: Tools:Utilities",
+  "paths": [
+    {
+      "name": "Data Dir",
+      "host": "/mnt/cache/appdata/ungoogled-chromium/",
+      "container": "/ungoogledchromium",
+      "mode": "rw",
+      "description": "Data Path",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "noVNC WebGUI",
+      "host": "8080",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "TCP noVNC WebGUI",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Extra Parameters",
+      "key": "EXTRA_PARAMETERS",
+      "value": null,
+      "description": "If needed enter extra startup parameters here otherwise leave empty.",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Ungoogled Chromium Version",
+      "key": "UG_CHROMIUM_V",
+      "value": "latest",
+      "description": "You can find a full list of availabel versions here if you don't want to install the latest version: https://ungoogled-software.github.io/ungoogled-chromium-binaries/releases/linux_portable/64bit/",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "noVNC Resizing",
+      "key": "NOVNC_RESIZE",
+      "value": "remote",
+      "description": "Valid options are 'off', 'scale', 'remote'.",
+      "required": false,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "Custom Screen Width",
+      "key": "CUSTOM_RES_W",
+      "value": "1280",
+      "description": "Minimum screen width 1024 pixels",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Custom Screen Height",
+      "key": "CUSTOM_RES_H",
+      "value": "768",
+      "description": "Minimum screen hight 768 pixels",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "Umask",
+      "key": "UMASK",
+      "value": "000",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

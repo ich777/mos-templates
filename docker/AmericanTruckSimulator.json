@@ -1,0 +1,106 @@
+{
+  "name": "AmericanTruckSimulator",
+  "repo": "ghcr.io/ich777/steamcmd:ats",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/ats.png",
+  "project": "https://steampowered.com/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install American Truck Simulator and run it.\r\n\r\n**Server Credentials:** The default name from the server is: **Docker Server** and the password is: **Docker**\r\n\r\n**ATTENTION:** First Startup can take very long since it downloads the gameserver files and the world template!\r\n\r\n**Server Configuration:** For more information see the file 'server_readme.txt' in the main directory from the dedicated server.\r\n\r\n**Save Path:** The configuration files and save data is located in: '.../.local/share/American Truck Simulator '.\r\n\r\n**Update Notice:** Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/americantrucksimulator",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": null,
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "UDP Game Ports",
+      "host": "27015-27016",
+      "container": "27015-27016",
+      "protocol": "udp",
+      "description": "UDP Gameports (if you need other port, please delete this entry and create a new UDP Ports with the required port numbers, also don't forget to change the port numbers in your game config)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "2239530",
+      "description": "The GAME_ID that the container download at startup.\r\nIf you want to install a static or beta version of the game change the value to: '2239530 -beta YOURBRANCH' (without quotes, replace YOURBRANCH with the branch or version you want to install).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Game Parameters",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter your game parameters (only change the worldId if you know what you are doing!).",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": null,
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

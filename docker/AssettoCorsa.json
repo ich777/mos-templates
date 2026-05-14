@@ -1,0 +1,160 @@
+{
+  "name": "AssettoCorsa",
+  "repo": "ghcr.io/ich777/steamcmd:assettocorsa",
+  "registry": "https://hub.docker.com/r/ich777/steamcmd/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": null,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/assettocorsa.png",
+  "project": "https://www.assettocorsa.net/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This Docker will download and install SteamCMD. It will also install AssettoCorsa and run it.\r\n\r\nATTENTION: You must provide a valid Steam username and password with Steam Guard disabled (the user dosen't have to have the game in the library).\r\n\r\nUpdate Notice: Simply restart the container if a newer version of the game is available.\r\n\r\nYou can also run multiple servers with only one SteamCMD directory!",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "SteamCMD",
+      "host": "/mnt/cache/appdata/steamcmd",
+      "container": "/serverdata/steamcmd",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/steamcmd",
+      "required": true,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/assettocorsa",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP",
+      "host": "9600",
+      "container": "9600",
+      "protocol": "tcp",
+      "description": "Container Port: 9600",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UDP",
+      "host": "9600",
+      "container": "9600",
+      "protocol": "udp",
+      "description": "Container Port: 9600",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP2",
+      "host": "8081",
+      "container": "8081",
+      "protocol": "tcp",
+      "description": "Container Port: 8081",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP3 - Stracker",
+      "host": "50041",
+      "container": "50041",
+      "protocol": "tcp",
+      "description": "Only needed if you installed Stacker (Webserver Address: http://[IPOFYOURSERVER]:50041).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP4 - Assetto-Server-Manager",
+      "host": "8772",
+      "container": "8772",
+      "protocol": "tcp",
+      "description": "Only needed if you installed Assetto-Server-Manager (Webserver Address: http://[IPOFYOURSERVER]:8771).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "GAME_ID",
+      "key": "GAME_ID",
+      "value": "302550",
+      "description": "The GAME_ID that the container download at startup.\r\n(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Validate Installation",
+      "key": "VALIDATE",
+      "value": null,
+      "description": "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank.",
+      "required": false,
+      "mask": false,
+      "display": "always-hide",
+      "default": null
+    },
+    {
+      "name": "Install Stracker",
+      "key": "INSTALL_STRACKER",
+      "value": null,
+      "description": "Set to 'true' (without quotes) to install Stacker, otherwise leave blank (Please note that you can only Stacker or Assetto-Server-Manager, not both at the same time).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Install Assetto-Server-Manager",
+      "key": "INSTALL_ASSETTO_SERVER_MANAGER",
+      "value": null,
+      "description": "Set to 'true' (without quotes) to install Assetto-Server-Manager, otherwise leave blank (Please note that you can only Stacker or Assetto-Server-Manager, not both at the same time).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}

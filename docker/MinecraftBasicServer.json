@@ -1,0 +1,168 @@
+{
+  "name": "MinecraftBasicServer",
+  "repo": "ghcr.io/ich777/minecraftbasicserver",
+  "registry": "https://hub.docker.com/r/ich777/minecraftbasicserver/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:8080]/",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/mc.png",
+  "project": "https://www.minecraft.net/",
+  "support": "https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/",
+  "description": "This is a Basic Minecraft Server, with the basic configuration it will download and install a Vanilla Minecraft.\r\n\r\nYou can also install a FTB (FeedTheBeast), Bukkit, Spigot,... server.\r\n\r\nStart the container for the first time let it do it's work and shut it down.\r\nAfter that copy over your favorite server executable (don't forget to set the Serverfile name to the same as you copied over) and start the container again.\r\n\r\nJAVA RUNTIME: Enter your prefered Runtime 'basicjre'=jre8, 'jre11'=jre11, 'jre15'=jre15 Don't change unless you are knowing what you are doing! Please keep in mind if you change the runtime you have to delete the old runtime before\r\n\r\nUPDATE: If you set the variable GAME_V to 'latest' the container will check on every restart if there is a newer version available (if set to 'latest' the variable JAR_NAME has to be 'server').\n\r\nATTENTION: Don't forget to accept the EULA down below and don't forget to edit the 'server.properties' file the server is by default configured to be a LAN server and to be not snooped.\r\n\r\nWEB CONSOLE: You can connect to the Minecraft console by opening your browser and go to HOSTIP:9011 (eg: 192.168.1.1:9011) or click on WebUI on the Docker page within Unraid.",
+  "category": "GameServers:",
+  "paths": [
+    {
+      "name": "ServerFiles",
+      "host": "/mnt/cache/appdata/minecraft",
+      "container": "/serverdata/serverfiles",
+      "mode": "rw",
+      "description": "Container Path: /serverdata/serverfiles",
+      "required": true,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "ports": [
+    {
+      "name": "TCP - Game Port",
+      "host": "25565",
+      "container": "25565",
+      "protocol": "tcp",
+      "description": "Container Port: 25565",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP2 - RCON",
+      "host": "25575",
+      "container": "25575",
+      "protocol": "tcp",
+      "description": "Not required if not needed",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "TCP - WebConsole",
+      "host": "9011",
+      "container": "8080",
+      "protocol": "tcp",
+      "description": "WebConsole (by default, you can connect to the Minecraft console by opening your browser and go to HOSTIP:9011 - eg: 192.168.1.1:9011 - or click on WebUI on the Docker page within Unraid).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    }
+  ],
+  "variables": [
+    {
+      "name": "Serverfile name",
+      "key": "JAR_NAME",
+      "value": "server",
+      "description": "Enter your executable jar file (Minecraft Serverfile) withouat the .jar extension.",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Game version",
+      "key": "GAME_V",
+      "value": "latest",
+      "description": "If you set the variable GAME_V to 'latest' the container will check on every restart if there is a newer version available (if set to 'latest' the variable JAR_NAME has to be 'server' - available options are 'latest', 'custom' or simply leave empty).",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Extra Game Parameters",
+      "key": "GAME_PARAMS",
+      "value": null,
+      "description": "Enter your extra startup parameters otherwise leave blank!",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Extra JVM Parameters",
+      "key": "EXTRA_JVM_PARAMS",
+      "value": null,
+      "description": "Enter your extra startup parameters for the JVM otherwise leave blank! (Only change if you know what you are doing!!!)",
+      "required": false,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "XMS Size",
+      "key": "XMS_SIZE",
+      "value": "1024",
+      "description": "Enter your XMS size in MB (XMS=The initial and minimum heap size. It is recommended to set the minimum heap size equivalent to the maximum heap size in order to minimize the garbage collection.)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "XMX Size",
+      "key": "XMX_SIZE",
+      "value": "1024",
+      "description": "Enter your XMX size in MB (XMX=The maximum heap size. The performance will decrease if the max heap value is set lower than the amount of live data. It will force frequent garbage collections in order to free up space.)",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": null
+    },
+    {
+      "name": "Accept EULA",
+      "key": "ACCEPT_EULA",
+      "value": "false",
+      "description": "Head over to: https://account.mojang.com/documents/minecraft_eula to read the EULA. (If you accept the EULA change the value to 'true' without quotes).",
+      "required": true,
+      "mask": false,
+      "display": "always",
+      "default": "false"
+    },
+    {
+      "name": "Runtime Name",
+      "key": "RUNTIME_NAME",
+      "value": "jre25",
+      "description": "Enter your prefered Runtime: 'basicjre'=jre8, 'jre11'=jre11, 'jre15'=jre15, 'jre16'=jre16, 'jre17'=jre17, 'jre21=jre21' Don't change unless you are knowing what you are doing!",
+      "required": true,
+      "mask": false,
+      "display": "advanced",
+      "default": null
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "description": "Container Variable: UID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "description": "Container Variable: GID",
+      "required": true,
+      "mask": false,
+      "display": "advanced-hide",
+      "default": null
+    }
+  ],
+  "devices": [],
+  "labels": []
+}
