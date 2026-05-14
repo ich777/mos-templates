@@ -33,7 +33,7 @@
       "key": "POSTGRES_INITDB_ARGS",
       "value": "--data-checksums",
       "description": null,
-      "required": false,
+      "required": true,
       "mask": false
     },
     {
@@ -41,7 +41,7 @@
       "key": "POSTGRES_PASSWORD",
       "value": "postgres",
       "description": null,
-      "required": false,
+      "required": true,
       "mask": false
     },
     {
@@ -49,7 +49,7 @@
       "key": "POSTGRES_USER",
       "value": "postgres",
       "description": null,
-      "required": false,
+      "required": true,
       "mask": false
     },
     {
@@ -57,7 +57,7 @@
       "key": "POSTGRES_DB",
       "value": "immich",
       "description": null,
-      "required": false,
+      "required": true,
       "mask": false
     }
   ],
