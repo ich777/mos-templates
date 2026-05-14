@@ -1,7 +1,7 @@
 {
   "name": "HomeAssistant",
   "repo": "ghcr.io/home-assistant/home-assistant:stable",
-  "network": "host",
+  "network": "bridge",
   "custom_ip": null,
   "default_shell": "sh",
   "privileged": false,
