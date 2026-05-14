@@ -19,17 +19,17 @@
   "requires": null,
   "paths": [
     {
-      "name": "Host Path 2",
-      "host": "/mnt/cache/Movies/",
+      "name": "Movie Path",
+      "host": "/mnt/main/Media/Movies",
       "container": "/mnt/Movies"
     },
     {
-      "name": "Serien",
-      "host": "/mnt/cache/TV/",
+      "name": "TV Shows Path",
+      "host": "/mnt/main/Media/TV/",
       "container": "/mnt/TV"
     },
     {
-      "name": "AppData Config Path",
+      "name": "appdata Config Path",
       "host": "/mnt/cache/appdata/Emby/",
       "container": "/config"
     }
