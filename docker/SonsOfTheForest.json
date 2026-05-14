@@ -86,22 +86,6 @@
       "mask": false
     },
     {
-      "name": "Steam-Username",
-      "key": "USERNAME",
-      "value": null,
-      "description": "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard).",
-      "required": false,
-      "mask": false
-    },
-    {
-      "name": "Steam-Password",
-      "key": "PASSWRD",
-      "value": null,
-      "description": "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard).",
-      "required": false,
-      "mask": true
-    },
-    {
       "name": "UID",
       "key": "UID",
       "value": "500",
