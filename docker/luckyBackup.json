@@ -24,9 +24,9 @@
     },
     {
       "name": "Shares",
-      "host": "/mnt/cache/",
-      "container": "/mnt/user",
-      "mode": "rw",
+      "host": "/mnt",
+      "container": "/mnt",
+      "mode": "ro",
       "description": "Container Path: /mnt/user",
       "required": true
     }
