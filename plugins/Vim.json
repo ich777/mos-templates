@@ -1,0 +1,13 @@
+{
+  "name": "Vim",
+  "description": "Vim for MOS",
+  "category": [ "System" ],
+  "repository": "https://github.com/ich777/mos-vim",
+  "architecture": [ "amd64", "arm64" ],
+  "driver": false,
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/vim.png",
+  "author": "ich777",
+  "homepage": "https://github.com/vim/vim",
+  "support": "https://github.com/ich777/mos-vim/issues",
+  "donate": "https://www.paypal.com/ncp/payment/ZZPJ7XEYD3CZ2"
+}
