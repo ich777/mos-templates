@@ -1,0 +1,12 @@
+{
+  "name": "OpenCode",
+  "description": "OpenCode Plugin for MOS",
+  "category": [ "AI", "System" ],
+  "repository": "https://github.com/ich777/mos-opencode",
+  "driver": false,
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/opencode.png",
+  "author": "ich777",
+  "homepage": "https://opencode.ai",
+  "support": "https://github.com/ich777/mos-opencode/issues",
+  "donate": "https://paypal.me/chips777"
+}
