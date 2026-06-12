@@ -1,0 +1,13 @@
+{
+  "name": "BlueZ",
+  "description": "MOS BlueZ Plugin. This plugin installs DBus and BlueZ to your MOS Server",
+  "category": [ "System" ],
+  "repository": "https://github.com/ich777/mos-bluez",
+  "architecture": [ "all" ],
+  "driver": false,
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/bluez.png",
+  "author": "ich777",
+  "homepage": "https://github.com/bluez",
+  "support": "https://github.com/ich777/mos-bluez/issues",
+  "donate": "https://paypal.me/chips777"
+}
