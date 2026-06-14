@@ -12,7 +12,7 @@
   "icon": "https://raw.githubusercontent.com/ad4mts/zfdash/main/src/data/icons/zfs-gui.png",
   "project": "https://github.com/ad4mts/zfdash",
   "support": "https://github.com/ad4mts/zfdash/issues",
-  "description": "ZfDash simplifies ZFS administration on Linux, macOS, and FreeBSD through intuitive graphical interfaces. Built with Python and featuring a secure daemon architecture, it provides comprehensive ZFS management capabilities without requiring command-line expertise.\n**Default Login:**:\n__Username:__ admin\n__Password:__ admin",
+  "description": "ZfDash simplifies ZFS administration on Linux, macOS, and FreeBSD through intuitive graphical interfaces. Built with Python and featuring a secure daemon architecture, it provides comprehensive ZFS management capabilities without requiring command-line expertise.\n<b>Default Login:</b>:\n__Username:__ admin\n__Password:__ admin",
   "category": [ "Game Server" ],
   "paths": [
     {
