@@ -41,7 +41,7 @@
       "mode": "ro",
       "host": "/dev",
       "container": "/dev",
-      "description": ""Mount for Host /dev directory"
+      "description": "Mount for Host /dev directory"
     }
   ],
   "ports": [
