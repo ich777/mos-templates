@@ -1,0 +1,13 @@
+{
+  "name": "tmux",
+  "description": "tmux for MOS",
+  "category": [ "System" ],
+  "repository": "https://github.com/ich777/mos-tmux",
+  "architecture": [ "amd64" ],
+  "driver": false,
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/tmux.png",
+  "author": "ich777",
+  "homepage": "https://github.com/tmux/tmux",
+  "support": "https://github.com/ich777/mos-tmux/issues",
+  "donate": "https://github.com/sponsors/nicm"
+}
