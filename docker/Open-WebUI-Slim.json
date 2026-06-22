@@ -10,8 +10,10 @@
   "category": [ "AI", "Productivity" ],
   "description": "Open WebUI Slim is a lightweight, self-hosted web interface for interacting with LLMs, offering a streamlined ChatGPT-like experience without the overhead of bundled inference engines. Connect it to your existing Ollama instance or any OpenAI-compatible API to chat with your models through a clean, responsive UI.",
   "web_ui_url": "http://[ADDRESS]:[PORT:8080]/",
+  "project": "https://docs.openwebui.com/",
   "support": "https://github.com/open-webui/open-webui/issues",
   "icon": "https://raw.githubusercontent.com/open-webui/open-webui/main/static/favicon.png",
+  "donate": "https://github.com/sponsors/tjbck",
   "paths": [
     {
       "name": "Data",
