@@ -1,0 +1,14 @@
+{
+  "name": "Headscale Admin",
+  "description": "Manage your Headscale Docker container instance directly from the MOS WebUI",
+  "category": [ "System", "VPN", "Productivity", "Utilities" ],
+  "repository": "https://github.com/ich777/mos-headscale-admin",
+  "architecture": [ "all" ],
+  "driver": false,
+  "settings": true,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/headscale.png",
+  "author": "ich777",
+  "homepage": "https://github.com/juanfont/headscale",
+  "support": "https://github.com/ich777/mos-headscale-admin/issues",
+  "donate": "https://ko-fi.com/headscale"
+}
