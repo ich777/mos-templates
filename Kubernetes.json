@@ -1,0 +1,14 @@
+{
+  "name": "Kubernetes",
+  "description": "Manage k3s - lightweight Kubernetes",
+  "category": [ "System", "Productivity", "Utilities" ],
+  "repository": "https://github.com/ich777/mos-kubernetes",
+  "architecture": [ "all" ],
+  "driver": false,
+  "settings": true,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/kubernetes.png",
+  "author": "ich777",
+  "homepage": "https://k3s.io/",
+  "support": "https://github.com/ich777/mos-kubernetes/issues",
+  "donate": "https://paypal.me/chips777"
+}

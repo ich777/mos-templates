@@ -1,0 +1,14 @@
+{
+  "name": "Helm",
+  "description": "Manage Helm - the package manager for Kubernetes",
+  "category": [ "System", "Productivity", "Utilities" ],
+  "repository": "https://github.com/ich777/mos-helm",
+  "architecture": [ "all" ],
+  "driver": false,
+  "settings": true,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/helm.png",
+  "author": "ich777",
+  "homepage": "https://helm.sh/",
+  "support": "https://github.com/ich777/mos-helm/issues",
+  "donate": "https://paypal.me/chips777"
+}
