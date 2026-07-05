@@ -6,7 +6,7 @@
   "architecture": [ "all" ],
   "driver": false,
   "settings": true,
-  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/kubernetes.png",
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/kubernetes.png",
   "author": "ich777",
   "homepage": "https://k3s.io/",
   "support": "https://github.com/ich777/mos-kubernetes/issues",
