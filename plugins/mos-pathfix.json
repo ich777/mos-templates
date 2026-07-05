@@ -1,0 +1,13 @@
+{
+  "name": "MOS Organization Path Fix",
+  "description": "This plugin rewrites legacy /ich777/ paths to /mos-nas/ and will also update your Plugins to the latest version.",
+  "category": [ "System" ],
+  "repository": "https://github.com/ich777/mos-pathfix",
+  "architecture": [ "all" ],
+  "driver": false,
+  "icon": "mdi-auto-fix",
+  "author": "ich777",
+  "homepage": "https://github.com/ich777/mos-pathfix",
+  "support": "https://github.com/ich777/mos-pathfix/issues",
+  "donate": "https://www.paypal.com/ncp/payment/ZZPJ7XEYD3CZ2"
+}
