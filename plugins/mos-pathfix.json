@@ -5,7 +5,7 @@
   "repository": "https://github.com/ich777/mos-pathfix",
   "architecture": [ "all" ],
   "driver": false,
-  "icon": "mdi-auto-fix",
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/vim.png",
   "author": "ich777",
   "homepage": "https://github.com/ich777/mos-pathfix",
   "support": "https://github.com/ich777/mos-pathfix/issues",
