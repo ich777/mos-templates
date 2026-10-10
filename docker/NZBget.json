@@ -1,0 +1,82 @@
+{
+  "name": "NZBget",
+  "repo": "ghcr.io/ich777/nzbget",
+  "registry": "https://hub.docker.com/r/ich777/nzbget",
+  "network": "bridge",
+  "custom_ip": "",
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": null,
+  "web_ui_url": "http://[IP]:[PORT:6789]",
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/nzbget.png",
+  "project": "https://nzbget.com/",
+  "support": "https://github.com/ich777/docker-nzbget/issues",
+  "description": "NZBGet is an advanced NZB downloader designed to efficiently retrieve articles from Usenet newsgroups. It is built for high performance and low resource consumption, making it ideal for users looking for a fast, automated Usenet experience.",
+  "category": [ "Downloader", "Network" ],
+  "paths": [
+    {
+      "name": "Data Path",
+      "mode": "",
+      "host": "/mnt/cache/appdata/nzbget",
+      "container": "/nzbget",
+      "description": "Default data path for NZBget"
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI Port",
+      "protocol": "",
+      "host": "6789",
+      "container": "6789",
+      "description": "WebUI Port for NZBget"
+    }
+  ],
+  "variables": [
+    {
+      "name": "WebUI Username",
+      "key": "NZBGET_USERNAME",
+      "value": "",
+      "mask": false,
+      "description": "Leave empty for no username/password or specify your username here."
+    },
+    {
+      "name": "WebUI Password",
+      "key": "NZBGET_PASSWORD",
+      "value": "",
+      "mask": true,
+      "description": "Leave empty for no username/password or specify your password here."
+    },
+    {
+      "name": "NZBget Version",
+      "key": "NZBGET_V",
+      "value": "stable",
+      "mask": false,
+      "description": "Define your preferred NZBget version, you can either enter your prefered version or specify the branch like 'stable' or 'testing'."
+    },
+    {
+      "name": "UID",
+      "key": "UID",
+      "value": "500",
+      "mask": false,
+      "description": "Default UID"
+    },
+    {
+      "name": "GID",
+      "key": "GID",
+      "value": "500",
+      "mask": false,
+      "description": "Default GID"
+    },
+    {
+      "name": "UMASK",
+      "key": "UMASK",
+      "value": "0000",
+      "mask": false,
+      "description": "Default UMASK"
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}
