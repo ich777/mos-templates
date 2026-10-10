@@ -12,6 +12,7 @@
   "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/nzbget.png",
   "project": "https://nzbget.com/",
   "support": "https://github.com/ich777/docker-nzbget/issues",
+  "donate": "https://nzbget.com/donate/",
   "description": "NZBGet is an advanced NZB downloader designed to efficiently retrieve articles from Usenet newsgroups. It is built for high performance and low resource consumption, making it ideal for users looking for a fast, automated Usenet experience.",
   "category": [ "Downloader", "Network" ],
   "paths": [
