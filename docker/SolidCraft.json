@@ -15,16 +15,16 @@
   "description": "An open-source parametric 3D CAD application built in pure Rust.\n\nSketch, constrain, and build solids with a parametric feature timeline. Change a dimension and watch your model rebuild.\n\nATTENTION: Please do note that the sketches that you draw in the web version from SolidCraft are stored locally in your browser not on disk, don't forget to export your sketches/models.",
   "paths": [
     {
-      "name": "",
+      "name": "Data Path",
       "mode": "",
       "host": "/mnt/cache/appdata/solidcraft",
       "container": "/solidcraft",
-      "description": ""
+      "description": "Main data path for SolidCraft"
     }
   ],
   "ports": [
     {
-      "name": "",
+      "name": "WebUI Port",
       "protocol": "",
       "host": "9792",
       "container": "8080",
@@ -33,35 +33,35 @@
   ],
   "variables": [
     {
-      "name": "",
+      "name": "SolidCraft Version",
       "key": "SOLIDCRAFT_V",
       "value": "latest",
       "mask": false,
-      "description": ""
+      "description": "Leave at 'latest' or specify your preferred version here."
     },
     {
-      "name": "",
+      "name": "UID",
       "key": "UID",
       "value": "500",
       "mask": false,
       "description": ""
     },
     {
-      "name": "",
+      "name": "GID",
       "key": "GID",
       "value": "500",
       "mask": false,
       "description": ""
     },
     {
-      "name": "",
+      "name": "UMASK",
       "key": "UMASK",
       "value": "0000",
       "mask": false,
       "description": ""
     },
     {
-      "name": "",
+      "name": "Permissions",
       "key": "DATA_PERM",
       "value": "777",
       "mask": false,
