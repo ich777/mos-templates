@@ -1,0 +1,74 @@
+{
+  "name": "SolidCraft",
+  "repo": "ghcr.io/ich777/solidcraft",
+  "network": "bridge",
+  "custom_ip": "",
+  "default_shell": "",
+  "privileged": false,
+  "no_autoupdate": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": "",
+  "web_ui_url": "http://[IP]:[PORT:8080]",
+  "icon": "https://raw.githubusercontent.com/ich777/mos-templates/master/images/solidcraft.png",
+  "project": "https://github.com/bherbruck/solidcraft",
+  "support": "https://github.com/ich777/docker-solidcraft/issues",
+  "description": "An open-source parametric 3D CAD application built in pure Rust.\n\nSketch, constrain, and build solids with a parametric feature timeline. Change a dimension and watch your model rebuild.\n\nATTENTION: Please do note that the sketches that you draw in the web version from SolidCraft are stored locally in your browser not on disk, don't forget to export your sketches/models.",
+  "paths": [
+    {
+      "name": "",
+      "mode": "",
+      "host": "/mnt/cache/appdata/solidcraft",
+      "container": "/solidcraft",
+      "description": ""
+    }
+  ],
+  "ports": [
+    {
+      "name": "",
+      "protocol": "",
+      "host": "9792",
+      "container": "8080",
+      "description": ""
+    }
+  ],
+  "variables": [
+    {
+      "name": "",
+      "key": "SOLIDCRAFT_V",
+      "value": "latest",
+      "mask": false,
+      "description": ""
+    },
+    {
+      "name": "",
+      "key": "UID",
+      "value": "500",
+      "mask": false,
+      "description": ""
+    },
+    {
+      "name": "",
+      "key": "GID",
+      "value": "500",
+      "mask": false,
+      "description": ""
+    },
+    {
+      "name": "",
+      "key": "UMASK",
+      "value": "0000",
+      "mask": false,
+      "description": ""
+    },
+    {
+      "name": "",
+      "key": "DATA_PERM",
+      "value": "777",
+      "mask": false,
+      "description": ""
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}
