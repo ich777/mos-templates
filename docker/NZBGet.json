@@ -1,5 +1,5 @@
 {
-  "name": "NZBget",
+  "name": "NZBGet",
   "repo": "ghcr.io/ich777/nzbget",
   "registry": "https://hub.docker.com/r/ich777/nzbget",
   "network": "bridge",
