@@ -1,0 +1,14 @@
+{
+  "name": "Sundtek Driver",
+  "description": "Sundtek Userspace driver and configurations for MOS",
+  "category": [ "System", "Driver", "Utilities" ],
+  "repository": "https://github.com/ich777/mos-sundtek",
+  "architecture": [ "amd64" ],
+  "driver": true,
+  "settings": true,
+  "icon": "https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/sundtek.png",
+  "author": "ich777",
+  "homepage": "https://sundtek.com/",
+  "support": "https://github.com/ich777/mos-sundtek/issues",
+  "donate": "https://paypal.me/chips777"
+}
